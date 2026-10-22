@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>現在の日本を取り巻く経済状況</title>
+<!-- 見出し用の明朝体(Shippori Mincho)をGoogle Fontsから読み込む。
+     このタグは削除しない。ネット環境がない場合は自動的にブラウザ標準の明朝体に置き換わる。 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   html-seminar-slides デザインシステム CSS(完全版)
+   このCSSは変更せずそのまま使う。スライド固有の微調整が必要な
+   場合のみ、末尾に追記する。
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #888888;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  min-height: 100vh;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+}
+.slide-wrapper {
+  width: 1280px; height: 720px;
+  position: relative;
+  transform-origin: center center;
+}
+.slide-container { width: 100%; height: 100%; position: relative; }
+.slide {
+  position: absolute; inset: 0;
+  background: #ffffff;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.slide.active { display: flex; opacity: 1; }
+.slide::before {
+  content: ''; position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 10px;
+  background: #0a1730;
+}
+.slide-inner {
+  width: 100%; height: 100%;
+  padding: 46px 76px 44px 78px;
+  display: flex; flex-direction: column;
+  position: relative;
+}
+.category {
+  font-size: 15px; font-weight: 800;
+  letter-spacing: 0.22em; color: #0a1730;
+  margin-bottom: 14px; text-transform: uppercase;
+}
+.slide-title {
+  font-family: 'Shippori Mincho', 'Hiragino Kaku Gothic ProN', serif;
+  font-size: 42px; font-weight: 800;
+  color: #0a1730; line-height: 1.35; margin-bottom: 12px;
+}
+.slide-sub {
+  font-size: 17px; color: #3d4f6e;
+  margin-bottom: 28px; line-height: 1.6;
+}
+
+/* 番号付きリスト */
+.numbered-list { display: flex; flex-direction: column; gap: 16px; }
+.list-item { display: flex; align-items: flex-start; gap: 24px; }
+.list-num {
+  font-size: 29px; font-weight: 900; color: #0a1730;
+  letter-spacing: 0.02em; min-width: 48px; line-height: 1; padding-top: 4px;
+}
+.list-main { font-size: 22px; font-weight: 700; color: #0a1730; line-height: 1.45; }
+.list-note { font-size: 15px; color: #3d4f6e; line-height: 1.6; margin-top: 4px; }
+
+/* 強調ブロック:callout(リスト等のまとめに使う・濃紺背景・白文字・20px) */
+.callout { background: #0a1730; border-radius: 8px; padding: 16px 20px; margin-top: 24px; }
+.callout-text { font-size: 21px; font-weight: 700; color: #ffffff; line-height: 1.6; }
+
+/* 強調ブロック:highlight-box(本文中の強調・濃紺背景・白文字・20px) */
+.highlight-box { background: #0a1730; border-radius: 8px; padding: 16px 20px; margin-top: 16px; }
+.highlight-box p { font-size: 21px; color: #ffffff; font-weight: 700; line-height: 1.6; }
+
+/* タイトルスライド用メタ情報 */
+.meta { display: flex; gap: 0; border-top: 1px solid #d0d8e8; padding-top: 24px; }
+.meta-item { padding-right: 36px; margin-right: 36px; border-right: 1px solid #d0d8e8; }
+.meta-item:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.meta-label { font-size: 15px; font-weight: 700; letter-spacing: 0.15em; color: #4a5e78; margin-bottom: 5px; }
+.meta-value { font-size: 17px; font-weight: 700; color: #0a1730; }
+
+/* 2カラムグリッド */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.col-box {
+  background: #dce4f0; border-radius: 12px;
+  padding: 24px 22px; border-top: 4px solid #0a1730;
+}
+.col-box h3 { font-size: 20px; font-weight: 800; color: #0a1730; margin-bottom: 10px; }
+.col-box p { font-size: 15px; color: #2d3a50; line-height: 1.8; }
+.col-num { font-size: 33px; font-weight: 800; color: #0a1730; margin-bottom: 6px; line-height: 1; }
+
+/* 3カラムグリッド */
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.three-col .col-box { padding: 22px 18px; }
+.three-col .col-box h3 { font-size: 18px; }
+.three-col .col-box p { font-size: 15px; }
+
+/* 4カラムグリッド */
+.four-col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 18px; }
+.four-col .col-box { padding: 20px 16px; }
+.four-col .col-box h3 { font-size: 18px; }
+.four-col .col-box p { font-size: 15px; }
+
+/* 比較テーブル(色分けクラスなし・全セル統一カラー) */
+.compare-table { display: flex; flex-direction: column; gap: 0; border-radius: 10px; overflow: hidden; border: 1px solid #d0d8e8; }
+.compare-header { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; background: #0a1730; color: white; }
+.compare-row { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; border-bottom: 1px solid #d0d8e8; }
+.compare-row:last-child { border-bottom: none; }
+.compare-row:nth-child(even) { background: #dce4f0; }
+.compare-cell { padding: 13px 14px; font-size: 15px; color: #0a1730; line-height: 1.5; border-right: 1px solid #d0d8e8; }
+.compare-cell:last-child { border-right: none; }
+.compare-header .compare-cell { color: white; font-weight: 700; font-size: 15px; letter-spacing: 0.05em; }
+
+/* ステップフロー(横並び・各ボックスは内容に応じた高さ) */
+.step-flow { display: flex; align-items: stretch; gap: 0; }
+.step-box { flex: 1; background: #dce4f0; border-radius: 10px; padding: 20px 14px; text-align: center; border-top: 4px solid #0a1730; }
+.step-box h3 { font-size: 18px; font-weight: 800; color: #0a1730; margin-bottom: 8px; }
+.step-box p { font-size: 15px; color: #3d4f6e; line-height: 1.7; }
+.step-num { font-size: 29px; font-weight: 900; color: #0a1730; margin-bottom: 6px; }
+.step-arrow { font-size: 25px; color: #0a1730; margin: 0 6px; flex-shrink: 0; display: flex; align-items: center; }
+
+/* フッター:左=会社名、右=ページ番号 */
+.slide-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: auto; padding-top: 14px;
+  border-top: 1px solid #d0d8e8;
+  font-size: 15px; color: #4a5e78; letter-spacing: 0.05em;
+}
+
+/* ナビゲーション:
+   - 矢印ボタンはスライド本体(.slide-wrapper)の「すぐ外側」の左右中央に置く。
+     スライドと一緒に拡大縮小されるため、全画面でもウィンドウを縮めても常にスライドの左右に付いてくる。
+     矢印の置き場所として、JS側の scaleSlide が左右に約100pxずつの余白を確保している。
+   - ページ番号ドットはスライド本体の下部中央(フッター文字より下の余白帯)に重ねる。
+   これにより矢印もドットもスライドの内容にかぶらない。 */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  border: 2px solid #0a1730;
+  background: #ffffff;
+  color: #0a1730;
+  font-size: 27px; font-weight: 700; line-height: 1;
+  white-space: nowrap;
+  cursor: pointer; font-family: inherit;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.35);
+  transition: background 0.2s, color 0.2s;
+  z-index: 320;
+}
+.nav-arrow:hover { background: #0a1730; color: #ffffff; }
+.nav-arrow-left { left: -80px; }
+.nav-arrow-right { right: -80px; }
+
+.nav {
+  position: absolute;
+  bottom: 12px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; align-items: center;
+  padding: 5px 16px;
+  z-index: 310;
+}
+.dots { display: flex; gap: 5px; align-items: center; flex-wrap: wrap; max-width: 600px; justify-content: center; }
+/* ナビ用ドットは .dots 配下に限定する(凡例 .map-legend-item .dot と衝突させない) */
+/* 白背景スライドでも濃紺スライドでも見えるよう中間トーンにする */
+.dots .dot { width: 6px; height: 6px; border-radius: 50%; background: #8da6c9; cursor: pointer; transition: all 0.2s; }
+.dots .dot.active { background: #4a5e78; width: 16px; border-radius: 3px; }
+
+/* ========== 章選択メニュー(クリックで各章へジャンプ) ==========
+   .chapter-card に data-target="対象スライドのid" を書くだけで飛べる。 */
+.chapter-menu { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 22px; }
+.chapter-card {
+  background: #dce4f0; border-radius: 10px; border-left: 6px solid #0a1730;
+  padding: 18px 22px; text-align: left; cursor: pointer; font-family: inherit;
+  transition: background 0.2s, transform 0.15s;
+}
+.chapter-card:hover { background: #0a1730; transform: translateY(-2px); }
+.chapter-card:hover .chapter-num, .chapter-card:hover h3, .chapter-card:hover p { color: #ffffff; }
+.chapter-num { font-size: 15px; font-weight: 800; letter-spacing: 0.1em; color: #0a1730; margin-bottom: 5px; }
+.chapter-card h3 { font-size: 22px; font-weight: 800; color: #0a1730; margin-bottom: 6px; line-height: 1.4; }
+.chapter-card p { font-size: 15px; color: #3d4f6e; line-height: 1.6; }
+
+/* data-target を持つ要素は、どのパーツでもクリックでジャンプできる。
+   一覧ページのカード・表の行・箇条書き・SVGの箱などに付けて使う。 */
+[data-target] { cursor: pointer; }
+.info-card[data-target]:hover { background: #cfdaeb; }
+.compare-row[data-target]:hover { background: #eef2f8; }
+.sub-item[data-target] { border-radius: 6px; padding: 6px 8px; margin-left: -8px; transition: background 0.2s; }
+.sub-item[data-target]:hover { background: #dce4f0; }
+svg [data-target] rect { transition: fill 0.2s; }
+svg [data-target]:hover rect { fill: #b9c8de; }
+
+/* 目次に戻るボタン:矢印と同じくスライドの外側(左下)に置く。
+   id="menu" のスライドが無い資料では自動的に隠れる。 */
+.home-btn {
+  position: absolute; left: -80px; bottom: 4px;
+  width: 62px; height: 62px; border-radius: 50%;
+  border: 2px solid #0a1730; background: #ffffff; color: #0a1730;
+  font-size: 15px; font-weight: 800; font-family: inherit; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.35);
+  transition: background 0.2s, color 0.2s; z-index: 320;
+}
+.home-btn:hover { background: #0a1730; color: #ffffff; }
+
+/* ========== 表紙(濃紺背景) ========== */
+/* 左バー(.slide::before)は色を変えない:全スライド #0a1730 統一 */
+/* padding-top:120px でコンテンツを上から始め、テンプレートの flex:1 スペーサーでフッターを下端へ押し下げる */
+.slide-1 { background: #0a1730 !important; }
+.slide-1 .slide-inner { justify-content: flex-start; padding-top: 120px; }
+.slide-1 .category { color: #dc2626; letter-spacing: 0.28em; }
+.slide-1 .slide-title { color: #ffffff; font-size: 54px; margin-bottom: 20px; }
+.slide-1 .slide-title span { color: #dc2626; }
+.slide-1 .slide-sub { color: #c0cde3; font-size: 19px; margin-bottom: 48px; }
+.slide-1 .meta { border-top-color: rgba(255,255,255,0.2); }
+.slide-1 .meta-item { border-right-color: rgba(255,255,255,0.2); }
+.slide-1 .meta-label { color: #8da6c9; }
+.slide-1 .meta-value { color: #ffffff; }
+.slide-1 .slide-footer { border-top-color: rgba(255,255,255,0.15); color: #8da6c9; }
+
+/* ========== 最終スライド(濃紺背景) ========== */
+.slide-final { background: #0a1730 !important; }
+.slide-final .slide-inner { justify-content: center; }
+.slide-final .category { color: #dc2626; letter-spacing: 0.28em; }
+.slide-final .slide-title { color: #ffffff; font-size: 52px; margin-bottom: 20px; }
+.slide-final .slide-title span { color: #ffffff; }
+.slide-final .slide-sub { color: #c0cde3; font-size: 19px; margin-bottom: 44px; }
+.slide-final .meta { border-top-color: rgba(255,255,255,0.2); }
+.slide-final .meta-item { border-right-color: rgba(255,255,255,0.2); }
+.slide-final .meta-label { color: #8da6c9; }
+.slide-final .meta-value { color: #ffffff; }
+.slide-final .slide-footer { border-top-color: rgba(255,255,255,0.15); color: #8da6c9; }
+
+/* ========== セクション扉(章扉・濃紺背景) ========== */
+.section-divider { background: #0a1730 !important; }
+.section-divider .slide-inner { justify-content: center; position: relative; }
+.section-part-label {
+  font-size: 15px; font-weight: 800;
+  letter-spacing: 0.4em; color: #dc2626;
+  margin-bottom: 24px; text-transform: uppercase;
+}
+.section-bignum {
+  position: absolute; right: 80px; top: 60px;
+  font-size: 220px; font-weight: 900;
+  color: rgba(220,38,38,0.12);
+  line-height: 0.9; letter-spacing: -0.04em;
+  pointer-events: none;
+}
+.section-title {
+  font-family: 'Shippori Mincho', 'Hiragino Kaku Gothic ProN', serif;
+  font-size: 54px; font-weight: 800;
+  color: #ffffff; line-height: 1.3;
+  margin-bottom: 24px; max-width: 880px;
+}
+.section-title span { color: #dc2626; }
+.section-sub {
+  font-size: 19px; color: #c0cde3;
+  line-height: 1.7; max-width: 760px;
+  margin-bottom: 36px;
+}
+.section-meta {
+  display: flex; gap: 32px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  max-width: 760px;
+}
+.section-meta-item {
+  font-size: 15px; color: #8da6c9;
+  letter-spacing: 0.08em;
+}
+.section-meta-item strong {
+  color: #ffffff; font-size: 17px;
+  font-weight: 700; margin-left: 8px;
+}
+.section-divider .slide-footer {
+  border-top-color: rgba(255,255,255,0.15);
+  color: #8da6c9;
+}
+
+/* アジェンダ専用 */
+.agenda-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.agenda-item { display: flex; align-items: flex-start; gap: 16px; background: #dce4f0; border-radius: 10px; padding: 18px 20px; border-left: 5px solid #0a1730; }
+.agenda-time { font-size: 15px; font-weight: 700; color: #4a5e78; letter-spacing: 0.1em; background: #e4e9f2; padding: 3px 8px; border-radius: 4px; white-space: nowrap; margin-top: 2px; }
+.agenda-body h3 { font-size: 19px; font-weight: 800; color: #0a1730; margin-bottom: 4px; }
+.agenda-body p { font-size: 15px; color: #3d4f6e; line-height: 1.6; }
+
+/* 事例カード */
+.case-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+.case-card { background: #dce4f0; border-radius: 10px; padding: 20px 18px; border-top: 4px solid #0a1730; }
+.case-label { font-size: 15px; font-weight: 800; letter-spacing: 0.2em; color: #0a1730; margin-bottom: 8px; }
+.case-card h3 { font-size: 18px; font-weight: 800; color: #0a1730; margin-bottom: 8px; line-height: 1.4; }
+.case-card p { font-size: 15px; color: #3d4f6e; line-height: 1.7; }
+.case-result { margin-top: 10px; padding: 8px 12px; background: #eef1f7; border-radius: 6px; font-size: 15px; font-weight: 700; color: #0a1730; }
+
+/* 注意点ボックス */
+.warn-list { display: flex; flex-direction: column; gap: 16px; }
+.warn-item { display: flex; align-items: flex-start; gap: 20px; background: #dce4f0; border-radius: 10px; padding: 18px 20px; border-left: 5px solid #0a1730; }
+.warn-tag { font-size: 15px; font-weight: 800; background: #0a1730; color: #ffffff; padding: 3px 10px; border-radius: 4px; letter-spacing: 0.1em; white-space: nowrap; margin-top: 2px; }
+.warn-body h3 { font-size: 19px; font-weight: 800; color: #0a1730; margin-bottom: 4px; }
+.warn-body p { font-size: 15px; color: #3d4f6e; line-height: 1.6; }
+
+/* 大見出し強調スライド */
+.big-message { display: flex; flex-direction: column; justify-content: center; padding: 20px 0; }
+.big-message .big-text { font-family: 'Shippori Mincho', 'Hiragino Kaku Gothic ProN', serif; font-size: 35px; font-weight: 800; color: #0a1730; line-height: 1.6; margin-bottom: 24px; }
+.big-message .big-text span { color: #0a1730; border-bottom: 4px solid #0a1730; padding-bottom: 2px; }
+
+/* ========== SVG図解ラッパー ========== */
+/* マップ図・サイクル図・タイムライン・ピラミッド・ツリー・マトリクス・レイヤーズなど全SVG共通 */
+/* flex:1 は使わず、SVGの高さを明示的に制限してフッターが画面外に出ないようにする */
+.svg-figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 8px 0;
+  /* スライド高さ720 - 上下padding(46+44) - タイトル領域 - フッター領域 を考慮して上限を設定 */
+  max-height: 440px;
+}
+.svg-figure svg {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+}
+
+/* SVG図解の凡例(右側または下側に配置) */
+.map-legend {
+  background: #dce4f0;
+  border-radius: 8px;
+  padding: 16px 20px;
+  min-width: 180px;
+}
+.map-legend-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0a1730;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #0a1730;
+  padding-bottom: 6px;
+}
+.map-legend-item {
+  font-size: 15px;
+  color: #0a1730;
+  line-height: 1.8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.map-legend-item .dot {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.map-legend-item .dot-navy { background: #0a1730; }
+.map-legend-item .dot-blue { background: #3d4f6e; }
+.map-legend-item .dot-light { background: #dce4f0; border: 1px solid #0a1730; }
+
+/* ========== インフォグラフィック ========== */
+.infographic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.info-card {
+  background: #dce4f0;
+  border-radius: 10px;
+  padding: 20px 18px;
+  border-top: 4px solid #0a1730;
+}
+.info-card h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0a1730;
+  margin-bottom: 8px;
+}
+.info-card p {
+  font-size: 15px;
+  color: #3d4f6e;
+  line-height: 1.7;
+}
+.info-num {
+  font-size: 29px;
+  font-weight: 900;
+  color: #0a1730;
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+/* 縦型フロー */
+.v-flow { display: flex; flex-direction: column; align-items: center; gap: 0; }
+.v-flow .step-box { width: 100%; max-width: 560px; text-align: center; }
+.v-flow-arrow { font-size: 23px; color: #0a1730; margin: 6px 0; line-height: 1; }
+
+/* 規模比較バー */
+.scale-compare { display: flex; flex-direction: column; gap: 22px; justify-content: center; flex: 1; }
+.scale-item { display: flex; align-items: center; gap: 18px; }
+.scale-label { font-size: 17px; font-weight: 700; color: #0a1730; min-width: 110px; flex-shrink: 0; }
+.scale-bar { background: #dce4f0; border-radius: 6px; height: 42px; display: flex; align-items: center; justify-content: flex-end; padding: 0 14px; }
+.scale-bar-accent { background: #0a1730; }
+.scale-bar span { font-size: 17px; font-weight: 800; color: #0a1730; }
+.scale-bar-accent span { color: #ffffff; }
+
+/* 画像ショーケース */
+.image-showcase { display: flex; gap: 24px; justify-content: center; align-items: center; flex: 1; }
+.image-frame { border: 1px solid #d0d8e8; border-radius: 10px; overflow: hidden; background: #dce4f0; max-width: 720px; }
+.image-frame img { display: block; width: 100%; height: auto; }
+.image-caption { padding: 10px 14px; font-size: 15px; color: #3d4f6e; background: #ffffff; border-top: 1px solid #d0d8e8; }
+
+/* 料金カード */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.price-card { background: #dce4f0; border-radius: 10px; padding: 22px 18px; border-top: 4px solid #0a1730; position: relative; }
+.price-card-featured { background: #0a1730; }
+.price-tag { position: absolute; top: -12px; right: 16px; background: #0a1730; color: #ffffff; font-size: 15px; font-weight: 700; padding: 3px 10px; border-radius: 4px; }
+.price-card-featured .price-tag { background: #6b9eff; color: #0a1730; }
+.price-plan { font-size: 17px; font-weight: 800; color: #0a1730; margin-bottom: 6px; }
+.price-card-featured .price-plan { color: #ffffff; }
+.price-value { font-size: 27px; font-weight: 900; color: #0a1730; margin-bottom: 14px; }
+.price-value span { font-size: 15px; font-weight: 600; margin-left: 2px; }
+.price-card-featured .price-value { color: #ffffff; }
+.price-features { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.price-features li { font-size: 15px; color: #3d4f6e; padding-left: 14px; position: relative; }
+.price-features li::before { content: '●'; position: absolute; left: 0; top: 6px; font-size: 8px; color: #0a1730; }
+.price-card-featured .price-features li { color: #c0cde3; }
+.price-card-featured .price-features li::before { color: #6b9eff; }
+
+/* ランキングリスト */
+.ranking-list { display: flex; flex-direction: column; gap: 12px; }
+.rank-item { display: flex; align-items: center; gap: 18px; background: #dce4f0; border-radius: 10px; padding: 14px 20px; }
+.rank-num { font-size: 23px; font-weight: 900; color: #ffffff; background: #0a1730; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.rank-body { flex: 1; }
+.rank-body h3 { font-size: 17px; font-weight: 800; color: #0a1730; margin-bottom: 2px; }
+.rank-body p { font-size: 15px; color: #3d4f6e; }
+.rank-value { font-size: 21px; font-weight: 900; color: #0a1730; flex-shrink: 0; }
+
+/* Q&Aリスト */
+.qa-list { display: flex; flex-direction: column; gap: 18px; }
+.qa-item { background: #dce4f0; border-radius: 10px; padding: 18px 20px; }
+.qa-q { font-size: 18px; font-weight: 800; color: #0a1730; margin-bottom: 8px; display: flex; gap: 10px; align-items: flex-start; }
+.qa-a { font-size: 15px; color: #3d4f6e; line-height: 1.7; display: flex; gap: 10px; align-items: flex-start; }
+.qa-tag { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: #0a1730; color: #ffffff; font-size: 15px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.qa-tag-a { background: #3d4f6e; }
+
+/* 目次リスト */
+.toc-list { display: flex; flex-direction: column; }
+.toc-item { display: flex; align-items: center; gap: 20px; padding: 16px 0; border-bottom: 1px solid #d0d8e8; }
+.toc-num { font-size: 23px; font-weight: 900; color: #0a1730; min-width: 44px; }
+.toc-label { flex: 1; font-size: 20px; font-weight: 700; color: #0a1730; }
+.toc-page { font-size: 15px; color: #4a5e78; }
+
+/* 会社概要テーブル */
+.profile-table { display: flex; flex-direction: column; border-top: 1px solid #d0d8e8; }
+.profile-row { display: flex; padding: 14px 0; border-bottom: 1px solid #d0d8e8; }
+.profile-label { width: 160px; font-size: 15px; font-weight: 800; color: #4a5e78; letter-spacing: 0.05em; flex-shrink: 0; }
+.profile-value { flex: 1; font-size: 17px; color: #0a1730; font-weight: 700; line-height: 1.6; }
+
+/* メンバー紹介カード */
+.member-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.member-card { background: #dce4f0; border-radius: 10px; padding: 20px 18px; text-align: center; }
+.member-photo { width: 80px; height: 80px; border-radius: 50%; background: #c0cde3; margin: 0 auto 12px; }
+.member-name { font-size: 18px; font-weight: 800; color: #0a1730; }
+.member-role { font-size: 15px; color: #3d4f6e; margin-bottom: 8px; }
+.member-card p { font-size: 15px; color: #3d4f6e; line-height: 1.6; text-align: left; }
+
+/* MVVグリッド */
+.mvv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.mvv-box { background: #0a1730; border-radius: 10px; padding: 24px 20px; }
+.mvv-label { font-size: 15px; font-weight: 800; letter-spacing: 0.2em; color: #6b9eff; margin-bottom: 12px; }
+.mvv-box p { font-size: 17px; font-weight: 700; color: #ffffff; line-height: 1.7; }
+
+/* 画像背景スライド */
+.slide-image-bg { background-size: cover; background-position: center; }
+.slide-image-bg::before { display: none; }
+.image-bg-overlay { position: absolute; inset: 0; background: rgba(10,23,48,0.72); }
+.slide-image-bg .slide-inner { position: relative; z-index: 1; }
+.slide-image-bg .category { color: #6b9eff; }
+.slide-image-bg .slide-title { color: #ffffff; }
+.slide-image-bg .slide-sub { color: #c0cde3; }
+.slide-image-bg .slide-footer { border-top-color: rgba(255,255,255,0.2); color: #c0cde3; }
+
+/* ========== 印刷・PDF出力対応 ========== */
+/* 「Ctrl+P」または「ファイル→印刷→PDF保存」で各スライドが1枚ずつA4横で出力される */
+/* @page size は「A4 landscape」を指定。スライド本体は1280×720pxのままで、ブラウザがA4横に縮小フィットさせる */
+@media print {
+  @page { size: A4 landscape; margin: 0; }
+  body { background: #ffffff; padding: 0; min-height: auto; display: block; }
+  .nav, .nav-arrow, .home-btn { display: none !important; }
+  .slide-wrapper { width: 1280px; height: 720px; transform: none !important; }
+  .slide-container { position: static; }
+  .slide {
+    position: relative; inset: auto;
+    width: 1280px; height: 720px;
+    display: flex !important;
+    opacity: 1 !important;
+    page-break-after: always;
+    break-after: page;
+    transition: none;
+  }
+  .slide:last-child { page-break-after: auto; break-after: auto; }
+}
+/* ===== motion-kit.css  動く図・グラフ用スタイル(rg-)。style要素の末尾に貼る(assemble_slides.py --motion で自動挿入) ===== */
+/* 結果カード・ボタン(対話型計算モジュールと共通の calc- クラス) */
+.calc-btn { display: inline-block; font-size: 18px; font-weight: 800; color: #fff;
+  background: #0a1730; border: none; border-radius: 8px; padding: 12px 28px; cursor: pointer;
+  font-family: inherit; }
+.calc-btn:hover { background: #3d4f6e; }
+.calc-btn + .calc-btn { margin-left: 12px; }
+.calc-card { flex: 1; border: 1px solid #d0d8e8; border-top: 4px solid #0a1730;
+  border-radius: 8px; padding: 12px 16px; background: #fff; }
+.calc-card .lbl { font-size: 15px; color: #4a5e78; margin-bottom: 4px; }
+.calc-card .val { font-size: 30px; font-weight: 800; color: #0a1730; line-height: 1.2; }
+.calc-card .val small { font-size: 15px; font-weight: 700; margin-left: 3px; }
+.calc-card .note { font-size: 15px; color: #3d4f6e; margin-top: 4px; line-height: 1.5; }
+.calc-card.is-alert { border-top-color: #dc2626; }
+.calc-card.is-alert .val, .calc-card.is-alert .note { color: #dc2626; }
+
+/* ===== 回帰分析スライド用(rg-) 追加スタイル ===== */
+.slide-sub.tight { margin-bottom: 14px; }
+.rg-wrap { display: flex; gap: 26px; flex: 1; min-height: 0; align-items: flex-start; }
+.rg-left { flex: 0 0 330px; display: flex; flex-direction: column; gap: 12px; }
+.rg-right { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 8px; }
+.rg-right canvas { display: block; }
+.rg-ctrl { display: flex; flex-direction: column; gap: 6px; padding: 10px 14px; background: #dce4f0; border-radius: 8px; }
+.rg-ctrl-head { display: flex; justify-content: space-between; align-items: baseline; }
+.rg-ctrl-label { font-size: 16px; font-weight: 800; color: #0a1730; }
+.rg-ctrl-val { font-size: 20px; font-weight: 800; color: #0a1730; }
+.rg-ctrl-val small { font-size: 15px; font-weight: 700; margin-left: 2px; }
+.rg-range { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; background: #b9c8de; border-radius: 3px; outline: none; cursor: pointer; margin: 8px 0; }
+.rg-range::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%; background: #0a1730; border: 3px solid #ffffff; box-shadow: 0 1px 4px rgba(0,0,0,0.35); cursor: pointer; }
+.rg-range::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: #0a1730; border: 3px solid #ffffff; box-shadow: 0 1px 4px rgba(0,0,0,0.35); cursor: pointer; }
+.rg-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.rg-btns .calc-btn { font-size: 16px; padding: 10px 16px; margin-left: 0; }
+.calc-btn.is-on { background: #3d4f6e; box-shadow: inset 0 0 0 3px #0a1730; }
+.calc-btn.is-off { background: #ffffff; color: #0a1730; box-shadow: inset 0 0 0 2px #0a1730; }
+.rg-note { font-size: 15px; color: #3d4f6e; line-height: 1.7; }
+.rg-note strong { color: #0a1730; }
+.rg-gauge { height: 12px; background: #e4e9f2; border-radius: 6px; position: relative; margin-top: 8px; overflow: visible; }
+.rg-gauge-bar { position: absolute; left: 0; top: 0; bottom: 0; background: #0a1730; border-radius: 6px; width: 0; }
+.rg-gauge-mark { position: absolute; top: -4px; bottom: -4px; width: 3px; background: #4a5e78; }
+.rg-msg { background: #0a1730; border-radius: 8px; padding: 14px 18px; font-size: 19px; font-weight: 700; color: #ffffff; line-height: 1.6; }
+.rg-legend { display: flex; gap: 22px; font-size: 15px; color: #0a1730; align-items: center; justify-content: center; }
+.rg-legend span { display: inline-flex; align-items: center; gap: 8px; }
+.rg-sw { display: inline-block; width: 22px; height: 4px; background: #0a1730; }
+.rg-sw.band { height: 14px; background: rgba(10,23,48,0.16); }
+.rg-sw.grey { background: #8a98ac; }
+.rg-sw.dash { background: repeating-linear-gradient(90deg, #8a98ac 0 6px, transparent 6px 10px); }
+.rg-sw.dot { width: 13px; height: 13px; border-radius: 50%; }
+.rg-sw.ring { width: 13px; height: 13px; border-radius: 50%; background: #ffffff; border: 2px solid #0a1730; }
+.rg-sw.red { width: 13px; height: 13px; border-radius: 50%; background: #dc2626; }
+.rg-sw.zone { width: 18px; height: 14px; background: rgba(220,38,38,0.12); }
+
+/* 式の表示帯 */
+.rg-eq { display: flex; align-items: flex-start; justify-content: center; gap: 14px; background: #dce4f0; border-radius: 10px; padding: 12px 18px; margin-bottom: 12px; }
+.rg-eq-item { text-align: center; }
+.rg-eq-main { font-size: 28px; font-weight: 900; color: #0a1730; line-height: 1.3; white-space: nowrap; }
+.rg-eq-main.boxed { background: #0a1730; color: #ffffff; border-radius: 6px; padding: 0 12px; }
+.rg-eq-cap { font-size: 15px; color: #3d4f6e; margin-top: 4px; white-space: nowrap; }
+.rg-eq-op { font-size: 28px; font-weight: 900; color: #0a1730; line-height: 1.3; }
+
+/* 3つの数字 */
+.rg-big { font-size: 46px; font-weight: 900; color: #0a1730; line-height: 1.1; margin: 4px 0 10px; }
+.rg-big small { font-size: 18px; font-weight: 800; margin-left: 4px; }
+.col-box .rg-tag { display: inline-block; font-size: 15px; font-weight: 800; color: #ffffff; background: #0a1730; border-radius: 4px; padding: 2px 10px; margin-top: 10px; }
+.col-box[data-target]:hover { background: #cfdaeb; }
+
+/* 回帰の種類カード */
+.rg-type canvas { display: block; margin: 0 auto 10px; background: #ffffff; border-radius: 6px; }
+
+/* チェックリスト(2列) */
+.rg-warn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.rg-warn-grid .warn-item { padding: 18px 20px; }
+.rg-warn-grid .warn-tag { min-width: 72px; text-align: center; }
+.rg-warn-grid .warn-body h3 { font-size: 20px; }
+.rg-warn-grid .warn-body p { font-size: 16px; }
+.rg-warn-grid .warn-item.wide { grid-column: 1 / span 2; }
+
+/* 登場アニメーション:スライドが表示されたとき、子要素が順に浮かび上がる */
+@keyframes rgRise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.slide.active .rg-pop > * { animation: rgRise 0.6s ease both; }
+.slide.active .rg-pop > *:nth-child(2) { animation-delay: 0.15s; }
+.slide.active .rg-pop > *:nth-child(3) { animation-delay: 0.3s; }
+.slide.active .rg-pop > *:nth-child(4) { animation-delay: 0.45s; }
+.slide.active .rg-pop > *:nth-child(5) { animation-delay: 0.6s; }
+.slide.active .rg-pop > *:nth-child(6) { animation-delay: 0.75s; }
+/* 手順の順番点灯 */
+@keyframes rgLight { 0% { opacity: 0; transform: translateY(16px); } 60% { opacity: 1; transform: none; background: #0a1730; } 100% { opacity: 1; transform: none; } }
+@keyframes rgLightText { 0%, 60% { color: #ffffff; } 100% { } }
+.slide.active .rg-seq > * { animation: rgRise 0.5s ease both; }
+.slide.active .rg-seq > .step-box { animation: rgLight 1.1s ease both; }
+.slide.active .rg-seq > .step-box * { animation: rgLightText 1.1s ease both; }
+.slide.active .rg-seq > *:nth-child(1), .slide.active .rg-seq > *:nth-child(1) * { animation-delay: 0.2s; }
+.slide.active .rg-seq > *:nth-child(2) { animation-delay: 0.8s; }
+.slide.active .rg-seq > *:nth-child(3), .slide.active .rg-seq > *:nth-child(3) * { animation-delay: 1.0s; }
+.slide.active .rg-seq > *:nth-child(4) { animation-delay: 1.6s; }
+.slide.active .rg-seq > *:nth-child(5), .slide.active .rg-seq > *:nth-child(5) * { animation-delay: 1.8s; }
+.slide.active .rg-seq > *:nth-child(6) { animation-delay: 2.4s; }
+.slide.active .rg-seq > *:nth-child(7), .slide.active .rg-seq > *:nth-child(7) * { animation-delay: 2.6s; }
+.slide.active .rg-seq > *:nth-child(8) { animation-delay: 3.2s; }
+.slide.active .rg-seq > *:nth-child(9), .slide.active .rg-seq > *:nth-child(9) * { animation-delay: 3.4s; }
+.rg-seq .step-box { padding: 18px 12px; }
+.rg-seq .step-box h3 { font-size: 18px; }
+.rg-seq .step-arrow { margin: 0 4px; }
+@media print {
+  .rg-pop > *, .rg-seq > *, .rg-seq * { animation: none !important; opacity: 1 !important; transform: none !important; }
+}
+
+/* この資料だけの追加スタイル */
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.kpi { background: #dce4f0; border-radius: 10px; padding: 18px 18px 16px; border-top: 4px solid #0a1730; }
+.kpi[data-target]:hover { background: #cfdaeb; }
+.kpi .k-lbl { font-size: 16px; font-weight: 800; color: #0a1730; }
+.kpi .k-val { font-size: 38px; font-weight: 900; color: #0a1730; line-height: 1.15; margin: 8px 0 8px; white-space: nowrap; }
+.kpi .k-val small { font-size: 18px; font-weight: 800; margin-left: 3px; }
+.kpi .k-note { font-size: 15px; color: #3d4f6e; line-height: 1.55; }
+.slide-footer .src { font-size: 15px; color: #4a5e78; }
+.rate-big { font-size: 46px; font-weight: 900; color: #0a1730; line-height: 1.1; margin: 4px 0 12px; }
+.box-label { font-size: 15px; font-weight: 800; letter-spacing: 0.12em; color: #4a5e78; margin-bottom: 6px; }
+.flow-row-label { font-size: 18px; font-weight: 800; color: #0a1730; margin: 2px 0 10px; }
+.flow-row-label span { display: inline-block; background: #0a1730; color: #ffffff; border-radius: 4px; padding: 2px 10px; margin-right: 10px; font-size: 16px; }
+.flow-gap { height: 22px; }
+.ev-list { display: flex; flex-direction: column; gap: 14px; }
+.ev-item { display: flex; gap: 14px; align-items: baseline; }
+.ev-date { font-size: 17px; font-weight: 900; color: #0a1730; min-width: 66px; }
+.ev-text { font-size: 17px; color: #0a1730; line-height: 1.5; }
+.gauge-grid .col-box { text-align: center; }
+.gauge-num { font-size: 40px; font-weight: 900; color: #0a1730; line-height: 1.1; margin: 2px 0 6px; }
+.gauge-num small { font-size: 18px; font-weight: 800; margin-left: 2px; }
+.sum-list .list-main { font-size: 21px; }
+.map-node { cursor: pointer; }
+.map-node:hover rect { opacity: 0.85; }
+
+/* ===== 赤＝注意・負担・悪化の印(この資料の約束) ===== */
+.red { color: #dc2626 !important; }
+.red-mark { display: inline-block; background: #dc2626; color: #ffffff; font-size: 15px; font-weight: 800; border-radius: 4px; padding: 1px 8px; margin-left: 8px; vertical-align: middle; letter-spacing: 0.05em; }
+.kpi.alert { border-top-color: #dc2626; }
+.kpi.alert .k-val { color: #dc2626; }
+.col-box.alert { border-top-color: #dc2626; }
+.col-box.alert .col-num, .col-box.alert .gauge-num, .col-box.alert .rate-big { color: #dc2626; }
+.case-result.alert { color: #dc2626; background: #fdecec; }
+.step-box.alert { border-top-color: #dc2626; }
+.step-box.alert h3, .step-box.alert strong { color: #dc2626; }
+.step-box.alert-fill { background: #dc2626 !important; border-top-color: #dc2626; }
+.step-box.alert-fill h3, .step-box.alert-fill p { color: #ffffff !important; }
+.flow-row-label span.alert { background: #dc2626; }
+.calc-card.red-top { border-top-color: #dc2626; }
+.calc-card.red-top .val { color: #dc2626; }
+.big-message .big-text span.red-line { border-bottom-color: #dc2626; }
+.legend-red { font-size: 15px; color: #3d4f6e; }
+.legend-red i { display: inline-block; width: 12px; height: 12px; background: #dc2626; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.step-box.alert .step-num { color: #dc2626; }
+
+</style>
+</head>
+<body>
+  <div class="slide-wrapper" id="slideWrapper">
+    <div class="slide-container">
+
+      <!-- ============ 1. 表紙 ============ -->
+      <div class="slide slide-1 active">
+        <div class="slide-inner">
+          <div class="category">ECONOMY BRIEFING</div>
+          <h1 class="slide-title">現在の日本を取り巻く<br><span>経済状況</span></h1>
+          <p class="slide-sub">為替・金利・株価・原油・物価は、一本の糸でつながっている</p>
+          <div class="meta">
+            <div class="meta-item">
+              <div class="meta-label">DATA AS OF</div>
+              <div class="meta-value">2026年10月22日時点</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">THEME</div>
+              <div class="meta-value">原油 → 物価 → 金利 → 為替・株価</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">ORGANIZER</div>
+              <div class="meta-value">有限会社ナレッジ・アシスト</div>
+            </div>
+          </div>
+          <div style="flex:1;"></div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span>1 / N</span></div>
+        </div>
+      </div>
+
+      <!-- ============ 2. いまの数字 ============ -->
+      <div class="slide" id="s-dash">
+        <div class="slide-inner">
+          <div class="category">INTRO · TODAY'S NUMBERS</div>
+          <h2 class="slide-title">まず、いまの「8つの計器」を見る</h2>
+          <p class="slide-sub">どれも歴史的な水準です。<strong class="red">赤い数字</strong>は、家計や会社にとって負担が重くなっているものです。</p>
+          <div class="kpi-grid rg-pop">
+            <div class="kpi alert" data-target="s-fx"><div class="k-lbl">ドル円（為替）</div><div class="k-val">158<small>円台</small></div><div class="k-note">10/21。春と夏に介入があっても、また円安へ</div></div>
+            <div class="kpi alert" data-target="s-bond"><div class="k-lbl">米国の長期金利</div><div class="k-val">5.13<small>%</small></div><div class="k-note">10年国債・10/21。一時5.36%で2002年以来の高さ</div></div>
+            <div class="kpi alert" data-target="s-bond"><div class="k-lbl">日本の長期金利</div><div class="k-val">2.89<small>%</small></div><div class="k-note">10年国債・10/21。1996年以来の高い水準</div></div>
+            <div class="kpi" data-target="s-stock"><div class="k-lbl">日経平均株価</div><div class="k-val">62,907<small>円</small></div><div class="k-note">10/22終値。<span class="red">6月の最高値から約14%下</span></div></div>
+            <div class="kpi" data-target="s-stock"><div class="k-lbl">米国株（S&amp;P500）</div><div class="k-val">7,757</div><div class="k-note">10/21終値。10/6の高値7,844の近く</div></div>
+            <div class="kpi alert" data-target="s-oil"><div class="k-lbl">原油（北海ブレント）</div><div class="k-val">約111<small>ドル</small></div><div class="k-note">10/22。米国産WTIは約99ドル。2月は60ドル台</div></div>
+            <div class="kpi alert" data-target="s-price"><div class="k-lbl">米国の物価上昇率</div><div class="k-val">3.7<small>%</small></div><div class="k-note">9月・前年比。ガソリン高が主な原因</div></div>
+            <div class="kpi" data-target="s-price"><div class="k-lbl">日本の物価上昇率</div><div class="k-val">1.7<small>%</small></div><div class="k-note">8月・生鮮食品を除く。政府の支援で抑え中</div></div>
+          </div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span class="src">出典：FRB、財務省、日本経済新聞、CNBC、米労働省、総務省ほか</span><span>N / 総枚数</span></div>
+        </div>
+      </div>
+
+      <!-- ============ 3. 全体マップ ============ -->
+      <div class="slide" id="s-map">
+        <div class="slide-inner">
+          <div class="category">OVERVIEW · THE MAP</div>
+          <h2 class="slide-title">5つの数字は、左から右へ「波」が伝わる</h2>
+          <p class="slide-sub">今年の出発点は原油です。四角をクリックすると、詳しいページへ移動します。</p>
+          <div class="svg-figure">
+            <svg viewBox="0 0 1000 380" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="mpArr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0a1730"/></marker>
+                <marker id="mpArrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/></marker>
+              </defs>
+              <!-- 矢印(先に描く) -->
+              <line x1="160" y1="190" x2="282" y2="190" stroke="#0a1730" stroke-width="2.5" marker-end="url(#mpArr)"/>
+              <line x1="440" y1="190" x2="562" y2="190" stroke="#0a1730" stroke-width="2.5" marker-end="url(#mpArr)"/>
+              <line x1="720" y1="170" x2="822" y2="95" stroke="#0a1730" stroke-width="2.5" marker-end="url(#mpArr)"/>
+              <line x1="720" y1="210" x2="822" y2="285" stroke="#0a1730" stroke-width="2.5" marker-end="url(#mpArr)"/>
+              <path d="M 830 60 C 600 0, 420 30, 368 135" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#mpArrR)"/>
+              <!-- 矢印の上を流れる点 -->
+              <circle r="6" fill="#4a5e78"><animateMotion dur="2.4s" repeatCount="indefinite" path="M160,190 L282,190"/></circle>
+              <circle r="6" fill="#4a5e78"><animateMotion dur="2.4s" begin="0.6s" repeatCount="indefinite" path="M440,190 L562,190"/></circle>
+              <circle r="6" fill="#4a5e78"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M720,170 L822,95"/></circle>
+              <circle r="6" fill="#4a5e78"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M720,210 L822,285"/></circle>
+              <!-- 矢印のラベル -->
+              <text x="221" y="172" text-anchor="middle" fill="#3d4f6e" font-size="15" font-weight="700">燃料・電気代</text>
+              <text x="501" y="172" text-anchor="middle" fill="#3d4f6e" font-size="15" font-weight="700">利上げ</text>
+              <text x="735" y="112" text-anchor="middle" fill="#3d4f6e" font-size="15" font-weight="700">金利差で円安</text>
+              <text x="745" y="300" text-anchor="middle" fill="#3d4f6e" font-size="15" font-weight="700">株の重し</text>
+              <text x="575" y="78" text-anchor="middle" fill="#dc2626" font-size="15" font-weight="700">円安で輸入品がさらに値上がり</text>
+              <!-- ノード -->
+              <g class="map-node" data-target="s-oil">
+                <rect x="10" y="145" width="150" height="90" rx="8" fill="#0a1730"/>
+                <text x="85" y="183" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="800">原油</text>
+                <text x="85" y="211" text-anchor="middle" fill="#c0cde3" font-size="15">中東で供給不安</text>
+              </g>
+              <g class="map-node" data-target="s-price">
+                <rect x="290" y="145" width="150" height="90" rx="8" fill="#dce4f0" stroke="#0a1730" stroke-width="1.5"/>
+                <text x="365" y="183" text-anchor="middle" fill="#0a1730" font-size="22" font-weight="800">物価</text>
+                <text x="365" y="211" text-anchor="middle" fill="#3d4f6e" font-size="15">モノの値段</text>
+              </g>
+              <g class="map-node" data-target="s-rate">
+                <rect x="570" y="145" width="150" height="90" rx="8" fill="#dce4f0" stroke="#0a1730" stroke-width="1.5"/>
+                <text x="645" y="183" text-anchor="middle" fill="#0a1730" font-size="22" font-weight="800">金利</text>
+                <text x="645" y="211" text-anchor="middle" fill="#3d4f6e" font-size="15">お金の値段</text>
+              </g>
+              <g class="map-node" data-target="s-fx">
+                <rect x="830" y="30" width="150" height="90" rx="8" fill="#dce4f0" stroke="#0a1730" stroke-width="1.5"/>
+                <text x="905" y="68" text-anchor="middle" fill="#0a1730" font-size="22" font-weight="800">為替</text>
+                <text x="905" y="96" text-anchor="middle" fill="#3d4f6e" font-size="15">通貨の値段</text>
+              </g>
+              <g class="map-node" data-target="s-stock">
+                <rect x="830" y="260" width="150" height="90" rx="8" fill="#dce4f0" stroke="#0a1730" stroke-width="1.5"/>
+                <text x="905" y="298" text-anchor="middle" fill="#0a1730" font-size="22" font-weight="800">株価</text>
+                <text x="905" y="326" text-anchor="middle" fill="#3d4f6e" font-size="15">会社の値段</text>
+              </g>
+            </svg>
+          </div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span>N / 総枚数</span></div>
+        </div>
+      </div>
+
+      <!-- ============ 4. 原油 ============ -->
+      <div class="slide" id="s-oil">
+        <div class="slide-inner">
+          <div class="category">PART 1 · OIL</div>
+          <h2 class="slide-title">火種は原油。中東の戦火で一気に跳ね上がった</h2>
+          <p class="slide-sub tight">原油は「モノを作る・運ぶ」すべての土台。ここが上がると、ほかの数字が順に動き出します。</p>
+          <div class="rg-wrap">
+            <div class="rg-left" style="flex-basis:400px;">
+              <div class="ev-list rg-pop">
+                <div class="ev-item"><div class="ev-date">2/28</div><div class="ev-text">米国・イスラエルがイランを攻撃</div></div>
+                <div class="ev-item"><div class="ev-date">3/2</div><div class="ev-text">ホルムズ海峡が事実上の封鎖に</div></div>
+                <div class="ev-item"><div class="ev-date">4/7</div><div class="ev-text">2週間の停戦で合意、いったん落ち着く</div></div>
+                <div class="ev-item"><div class="ev-date">10月</div><div class="ev-text">タンカーやサウジの施設への攻撃が続き、再び高止まり</div></div>
+              </div>
+              <div class="rg-msg">日本は原油輸入の9割超を中東に頼っています。<span style="color:#ff8a8a;">ここが日本の弱点です。</span></div>
+            </div>
+            <div class="rg-right">
+              <canvas id="cvOil" data-w="660" data-h="350"></canvas>
+              <div class="rg-legend"><span><i class="rg-sw dot grey" style="background:#8a98ac;"></i>攻撃の前日</span><span><i class="rg-sw dot"></i>攻撃のあと</span><span><i class="rg-sw red"></i>3/9 一時の高値（約1.8倍）</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span class="src">WTI原油先物（ドル/バレル）。出典：時事通信、JOGMEC、ロイター、CNBC</span><span>N / 総枚数</span></div>
+        </div>
+      </div>
+
+      <!-- ============ 5. 物価 ============ -->
+      <div class="slide" id="s-price">
+        <div class="slide-inner">
+          <div class="category">PART 1 · PRICES</div>
+          <h2 class="slide-title">原油高は物価へ。ただし日米で差が出ている</h2>
+          <p class="slide-sub tight">同じ原油高でも、米国は物価にそのまま出て、日本は政府の支援で抑えられています。</p>
+          <div class="rg-wrap">
+            <div class="rg-left" style="flex-basis:400px;">
+              <div class="calc-card red-top">
+                <div class="lbl">米国：9月の物価 前年比</div>
+                <div class="val">3.7<small>%</small></div>
+                <div class="note">ガソリンが1か月で9.1%上昇し、上昇分の約半分を占めた。食料とエネルギーを除いても2.6%。</div>
+              </div>
+              <div class="calc-card">
+                <div class="lbl">日本：8月の物価（生鮮食品を除く）</div>
+                <div class="val">1.7<small>%</small></div>
+                <div class="note">電気・ガス代の支援でエネルギーは前年より下落。一方で日用品の値上げは広がっている。</div>
+              </div>
+            </div>
+            <div class="rg-right">
+              <canvas id="cvPrice" data-w="660" data-h="350"></canvas>
+              <div class="rg-legend"><span><i class="rg-sw" style="height:14px;width:14px;"></i>目標の2%まで</span><span><i class="rg-sw red" style="border-radius:2px;"></i>目標を超えた分</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span class="src">出典：米労働省（9月分）、総務省（8月分）、第一生命経済研究所</span><span>N / 総枚数</span></div>
+        </div>
+      </div>
+
+      <!-- ============ 6. 政策金利 ============ -->
+      <div class="slide" id="s-rate">
+        <div class="slide-inner">
+          <div class="category">PART 2 · POLICY RATES</div>
+          <h2 class="slide-title">物価を抑えるため、日米がそろって利上げ</h2>
+          <p class="slide-sub">中央銀行は「お金の値段（金利）」を上げて、使いすぎを抑え、物価の上昇を冷まそうとします。</p>
+          <div class="two-col rg-pop">
+            <div class="col-box">
+              <div class="box-label">米国（FRB）</div>
+              <div class="rate-big">3.75〜4.00%</div>
+              <h3>9月16日に0.25%の利上げ<span class="red-mark">約3年ぶり</span></h3>
+              <p>2023年7月以来、約3年ぶりの利上げ。全会一致。物価が下がらない、景気が強い、中東情勢が緊迫、の3つが理由。</p>
+            </div>
+            <div class="col-box">
+              <div class="box-label">日本（日本銀行）</div>
+              <div class="rate-big">1.25%</div>
+              <h3>9月18日に0.25%の利上げ<span class="red-mark">31年ぶり</span></h3>
+              <p>1995年以来、31年ぶりの水準。6月からわずか3か月で再び利上げ。原油高と円安で物価が上振れするのを警戒。</p>
+            </div>
+          </div>
+          <div class="callout"><div class="callout-text">日本が上げても、米国も上げた。だから日米の金利差は縮まらず、円は強くなりにくい。</div></div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span class="src">出典：FRB記者会見、日本銀行、大和総研、第一生命経済研究所</span><span>N / 総枚数</span></div>
+        </div>
+      </div>
+
+      <!-- ============ 7. 長期金利と債券価格 ============ -->
+      <div class="slide" id="s-bond" data-interactive>
+        <div class="slide-inner">
+          <div class="category">PART 2 · BONDS</div>
+          <h2 class="slide-title">金利と債券の値段は「シーソー」の関係</h2>
+          <p class="slide-sub tight">長期金利は市場で決まります。米国は5.13%（2002年以来の高さ）、日本は2.89%（1年前は1.7%前後）。</p>
+          <div class="rg-wrap">
+            <div class="rg-left">
+              <div class="rg-ctrl">
+                <div class="rg-ctrl-head"><span class="rg-ctrl-label">いまの市場金利</span><span class="rg-ctrl-val"><span id="bRv">2.9</span><small>%</small></span></div>
+                <input type="range" class="rg-range" id="bR" min="0.5" max="5" step="0.1" value="2.9">
+              </div>
+              <div class="calc-card" id="bCard">
+                <div class="lbl">利率2%・10年の国債（100円で購入）の値段</div>
+                <div class="val" id="bP">—</div>
+                <div class="note" id="bNote">—</div>
+              </div>
+              <div class="rg-note">新しく出る債券の利率が高くなると、<strong>低い利率の古い債券は安くしないと売れない</strong>。だから金利が上がると、持っている債券の値段は下がります。</div>
+            </div>
+            <div class="rg-right">
+              <canvas id="cvBond" data-w="740" data-h="345"></canvas>
+              <div class="rg-legend"><span><i class="rg-sw"></i>値上がり（買った時より金利が低い）</span><span><i class="rg-sw" style="background:#dc2626;"></i>値下がり（金利が上がった）</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span class="src">金利の出典：FRB、財務省（10/21）。債券の値段は計算例</span><span>N / 総枚数</span></div>
+        </div>
+      </div>
+
+      <!-- ============ 8. 金利差が円安を呼ぶ ============ -->
+      <div class="slide" id="s-fx">
+        <div class="slide-inner">
+          <div class="category">PART 2 · EXCHANGE RATE</div>
+          <h2 class="slide-title">金利の差が、円安を呼ぶ</h2>
+          <p class="slide-sub">お金は利息が多くつく方へ流れます。円を売ってドルを買う人が増えると、円安になります。</p>
+          <div class="step-flow rg-seq">
+            <div class="step-box"><div class="step-num">01</div><h3>米国の長期金利</h3><p><strong style="font-size:30px;">5.13%</strong><br>10年国債・10/21</p></div>
+            <div class="step-arrow">→</div>
+            <div class="step-box"><div class="step-num">02</div><h3>日本の長期金利</h3><p><strong style="font-size:30px;">2.89%</strong><br>10年国債・10/21</p></div>
+            <div class="step-arrow">→</div>
+            <div class="step-box alert"><div class="step-num">03</div><h3>差は約2.2%</h3><p>同じお金なら<br>ドルで持つ方が<br>利息が多い</p></div>
+            <div class="step-arrow">→</div>
+            <div class="step-box alert"><div class="step-num">04</div><h3>円を売りドルを買う</h3><p>円安が進み<br><strong style="font-size:30px;">158円台</strong></p></div>
+          </div>
+          <div class="callout"><div class="callout-text">1年前も差は約2.3%（米4.0%、日本1.7%）。日米とも上がったので、差はほぼ同じです。</div></div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span class="src">出典：FRB、財務省、Macrotrends、経済まるみえ</span><span>N / 総枚数</span></div>
+        </div>
+      </div>
+
+      <!-- ============ 9. 円安と物価の悪循環 ============ -->
+      <div class="slide" id="s-loop">
+        <div class="slide-inner">
+          <div class="category">PART 2 · VICIOUS CIRCLE</div>
+          <h2 class="slide-title">日本だけの悩み：原油高と円安の悪循環</h2>
+          <p class="slide-sub">エネルギーを輸入に頼る日本では、原油高が円安を呼び、円安がさらに物価を押し上げます。</p>
+          <div class="svg-figure">
+            <svg viewBox="0 0 640 380" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="lpArr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0a1730"/></marker>
+                <marker id="lpArrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/></marker>
+              </defs>
+              <line x1="220" y1="70" x2="412" y2="70" stroke="#0a1730" stroke-width="2.5" marker-end="url(#lpArr)"/>
+              <line x1="520" y1="110" x2="520" y2="262" stroke="#0a1730" stroke-width="2.5" marker-end="url(#lpArr)"/>
+              <line x1="420" y1="310" x2="228" y2="310" stroke="#0a1730" stroke-width="2.5" marker-end="url(#lpArr)"/>
+              <line x1="200" y1="270" x2="418" y2="118" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="7,5" marker-end="url(#lpArrR)"/>
+              <circle r="6" fill="#dc2626"><animateMotion dur="2.2s" repeatCount="indefinite" path="M200,270 L418,118"/></circle>
+              <text x="168" y="182" text-anchor="middle" fill="#dc2626" font-size="17" font-weight="800">悪循環</text>
+              <text x="168" y="204" text-anchor="middle" fill="#dc2626" font-size="15">さらに支払いが増える</text>
+              <rect x="20" y="30" width="200" height="80" rx="8" fill="#0a1730"/>
+              <text x="120" y="62" text-anchor="middle" fill="#ffffff" font-size="19" font-weight="800">01 原油が上がる</text>
+              <text x="120" y="88" text-anchor="middle" fill="#c0cde3" font-size="15">中東の供給不安</text>
+              <rect x="420" y="30" width="200" height="80" rx="8" fill="#dce4f0" stroke="#0a1730" stroke-width="1.5"/>
+              <text x="520" y="62" text-anchor="middle" fill="#0a1730" font-size="19" font-weight="800">02 支払いが増える</text>
+              <text x="520" y="88" text-anchor="middle" fill="#3d4f6e" font-size="15">輸入にドルが必要</text>
+              <rect x="420" y="270" width="200" height="80" rx="8" fill="#dce4f0" stroke="#0a1730" stroke-width="1.5"/>
+              <text x="520" y="302" text-anchor="middle" fill="#0a1730" font-size="19" font-weight="800">03 円安が進む</text>
+              <text x="520" y="328" text-anchor="middle" fill="#3d4f6e" font-size="15">円売り・ドル買い</text>
+              <rect x="20" y="270" width="200" height="80" rx="8" fill="#dce4f0" stroke="#0a1730" stroke-width="1.5"/>
+              <text x="120" y="302" text-anchor="middle" fill="#0a1730" font-size="19" font-weight="800">04 輸入品が値上がり</text>
+              <text x="120" y="328" text-anchor="middle" fill="#3d4f6e" font-size="15">物価がさらに上昇</text>
+            </svg>
+            <div class="map-legend" style="max-width:330px;">
+              <div class="map-legend-title">ポイント</div>
+              <div class="map-legend-item" style="align-items:flex-start;"><span class="dot dot-navy" style="margin-top:9px;"></span>原油はドルで買うので、原油高は「ドルが足りない」状態を生む</div>
+              <div class="map-legend-item" style="align-items:flex-start;"><span class="dot dot-navy" style="margin-top:9px;"></span>円安が重なると、同じ原油でも円での支払いはさらに増える</div>
+              <div class="map-legend-item" style="align-items:flex-start;"><span class="dot dot-navy" style="margin-top:9px;"></span>この循環を止めるため、日銀は利上げ、政府は為替介入で対抗</div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span class="src">出典：大和総研、第一生命経済研究所</span><span>N / 総枚数</span></div>
+        </div>
+      </div>
+
+      <!-- ============ 10. 為替介入 ============ -->
+      <div class="slide" id="s-intv">
+        <div class="slide-inner">
+          <div class="category">PART 2 · INTERVENTION</div>
+          <h2 class="slide-title">為替介入は「時間稼ぎ」。流れまでは変えにくい</h2>
+          <p class="slide-sub">政府は手持ちのドルを売って円を買い、円安を止めようとしました。今年の合計は27.1兆円で過去最大です。</p>
+          <div class="case-grid rg-pop">
+            <div class="case-card">
+              <div class="case-label">4月末〜5月（連休中）</div>
+              <h3>日本単独で3回</h3>
+              <p>1ドル160円70銭台から、一時155円台半ばへ。使った金額は11.7兆円。</p>
+              <div class="case-result">約3か月、円安を止めた</div>
+            </div>
+            <div class="case-card">
+              <div class="case-label">7月末〜8月初め</div>
+              <h3>日米がそろって介入</h3>
+              <p>28年ぶりの日米協調。163円台から155円台へ。金額は15.4兆円で、月間の過去最大。</p>
+              <div class="case-result alert">約1か月で元の水準に戻る</div>
+            </div>
+            <div class="case-card">
+              <div class="case-label">いま（10月）</div>
+              <h3>再び158円台</h3>
+              <p>金利差と原油高という「円安の原因」はそのまま。160円が次の警戒ラインとみられている。</p>
+              <div class="case-result alert">原因が変わらない限り、円安圧力は続く</div>
+            </div>
+          </div>
+          <div class="callout"><div class="callout-text">円の行方を決めるのは介入ではなく、金利差と原油。日本の場合はもう一つ、財政への信用です。</div></div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span class="src">出典：財務省、マネックス証券、野村総合研究所</span><span>N / 総枚数</span></div>
+        </div>
+      </div>
+
+      <!-- ============ 10b. 財政への不安 ============ -->
+      <div class="slide" id="s-fiscal">
+        <div class="slide-inner">
+          <div class="category">PART 2 · JAPAN'S FISCAL RISK</div>
+          <h2 class="slide-title">日本特有の重し：国の借金への不安</h2>
+          <p class="slide-sub tight">金利が上がると普通は円高になります。でも「国の借金は大丈夫か」という不安で上がると、円はむしろ売られます。</p>
+          <div class="kpi-grid rg-pop">
+            <div class="kpi"><div class="k-lbl">来年度の予算要求</div><div class="k-val">143<small>兆円</small></div><div class="k-note">2027年度。4年連続で過去最大</div></div>
+            <div class="kpi alert"><div class="k-lbl">借金の返済・利払い</div><div class="k-val">36.6<small>兆円</small></div><div class="k-note">国債費の要求。想定金利を3.0%から3.8%へ</div></div>
+            <div class="kpi"><div class="k-lbl">食料品の消費税</div><div class="k-val">8%→1<small>%</small></div><div class="k-note">2027年4月から2年間。財源の中身はまだ固まらず</div></div>
+            <div class="kpi alert"><div class="k-lbl">超長期金利（40年）</div><div class="k-val">4.05<small>%</small></div><div class="k-note">10/20。30年国債も3.94%</div></div>
+          </div>
+          <div style="height:16px;"></div>
+          <div class="flow-row-label"><span>ふつう</span>景気・物価が強くて金利が上がる</div>
+          <div class="step-flow">
+            <div class="step-box" style="padding:12px 14px;"><h3 style="margin:0;">日本の金利が上がる</h3></div>
+            <div class="step-arrow">→</div>
+            <div class="step-box" style="padding:12px 14px;"><h3 style="margin:0;">円で持つと得になる</h3></div>
+            <div class="step-arrow">→</div>
+            <div class="step-box" style="padding:12px 14px;"><h3 style="margin:0;">円が買われる（円高）</h3></div>
+          </div>
+          <div style="height:14px;"></div>
+          <div class="flow-row-label"><span class="alert">いま</span>財政への不安が混ざって金利が上がる</div>
+          <div class="step-flow">
+            <div class="step-box" style="padding:12px 14px;"><h3 style="margin:0;">国債が売られ金利が上がる</h3></div>
+            <div class="step-arrow">→</div>
+            <div class="step-box alert" style="padding:12px 14px;"><h3 style="margin:0;">日本への信用が下がる</h3></div>
+            <div class="step-arrow">→</div>
+            <div class="step-box alert-fill" style="padding:12px 14px;"><h3 style="margin:0;">円も売られる（円安）</h3></div>
+          </div>
+          <div class="rg-note" style="margin-top:12px;">ただし金利上昇のどこまでが財政のせいかは、物価高や日銀の利上げも重なるため、専門家の間でも見方が分かれています。</div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span class="src">出典：財務省・共同通信（予算要求）、時事通信、nippon.com、財務省（国債金利）</span><span>N / 総枚数</span></div>
+        </div>
+      </div>
+
+      <!-- ============ 11. 株価 ============ -->
+      <div class="slide" id="s-stock">
+        <div class="slide-inner">
+          <div class="category">PART 3 · STOCKS</div>
+          <h2 class="slide-title">株価は「AIブーム」と「金利高」の綱引き</h2>
+          <div style="display:flex; gap:30px; flex:1; min-height:0; align-items:center; margin-top:4px;">
+            <div style="flex:0 0 360px; display:flex; flex-direction:column; gap:20px;" class="rg-pop">
+              <div class="list-item">
+                <div class="list-num">01</div>
+                <div><div class="list-main" style="font-size:20px;">上げた力：AI・半導体ブーム</div><div class="list-note">6月22日に日経平均は最高値72,832円。AI関連の買いが相場を引っぱった。</div></div>
+              </div>
+              <div class="list-item">
+                <div class="list-num">02</div>
+                <div><div class="list-main" style="font-size:20px;"><span class="red">下げた力</span>：金利高とAI投資</div><div class="list-note">米国債で5%の利息がもらえるなら、株の魅力は薄れる。巨額のAI投資を回収できるかへの疑問も。</div></div>
+              </div>
+              <div class="list-item">
+                <div class="list-num">03</div>
+                <div><div class="list-main red" style="font-size:20px;">10月22日は1,713円安</div><div class="list-note">終値62,907円で約3か月ぶりの安値。米IT大手の投資計画への不安が広がった。</div></div>
+              </div>
+            </div>
+            <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;">
+              <canvas id="cvStock" data-w="700" data-h="360"></canvas>
+              <div class="rg-legend"><span><i class="rg-sw"></i>最高値までの上昇</span><span><i class="rg-sw" style="background:#dc2626;"></i>最高値からの下落</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span class="src">主な節目を結んだ概略（取引中の値を含む）。出典：日経、共同通信、Yahoo!ファイナンス</span><span>N / 総枚数</span></div>
+        </div>
+      </div>
+
+      <!-- ============ 11b. AIの遅れ ============ -->
+      <div class="slide" id="s-ai">
+        <div class="slide-inner">
+          <div class="category">PART 3 · JAPAN AND AI</div>
+          <h2 class="slide-title">日本特有の重し：AIでは「払う側」</h2>
+          <p class="slide-sub tight">使う力で遅れ、使った分の料金は海外へ。株価も、AIを作る側ではなく「道具を売る側」に頼っています。</p>
+          <div class="rg-wrap">
+            <div class="rg-left" style="flex-basis:430px;">
+              <div class="calc-card red-top">
+                <div class="lbl">デジタル赤字（海外IT企業への支払い超過）</div>
+                <div class="val">約6.6<small>兆円</small></div>
+                <div class="note">2025年。クラウドやソフトの利用料をドルで払う。原油と同じく、使うほど円が売られる。</div>
+              </div>
+              <div class="calc-card">
+                <div class="lbl">日本株を押し上げたのは「ツルハシ」</div>
+                <div class="val" style="font-size:24px;">半導体の装置・部材</div>
+                <div class="note">AIを作る米国企業に道具を売る会社が中心。米IT大手の投資が揺らぐと大きく下がる（10/22の1,713円安）。</div>
+              </div>
+              <div class="rg-note">会社での利用は86.4%まで広がった一方、その3割弱は<strong>会社として取り組みをしていない</strong>（個人任せ）という調査結果も出ています。</div>
+            </div>
+            <div class="rg-right">
+              <div style="font-size:17px; font-weight:800; color:#0a1730;">生成AIを使ったことがある人の割合（2025年度）</div>
+              <canvas id="cvAI" data-w="640" data-h="350"></canvas>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span class="src">出典：総務省 令和8年版 情報通信白書（日本は15〜19歳を含む）、日本経済新聞</span><span>N / 総枚数</span></div>
+        </div>
+      </div>
+
+      <!-- ============ 12. この1週間の連鎖 ============ -->
+      <div class="slide" id="s-week">
+        <div class="slide-inner">
+          <div class="category">PART 3 · REAL EXAMPLE</div>
+          <h2 class="slide-title">この1週間で見えた「連鎖」の実例</h2>
+          <p class="slide-sub tight">原油のニュースひとつで、同じ順番に数字が動きました。</p>
+          <div class="flow-row-label"><span>10/20</span>原油が下がった日</div>
+          <div class="step-flow rg-seq">
+            <div class="step-box"><h3>米イラン協議</h3><p>合意が近いとの報道</p></div>
+            <div class="step-arrow">→</div>
+            <div class="step-box"><h3>原油が下落</h3><p>供給不安がやわらぐ</p></div>
+            <div class="step-arrow">→</div>
+            <div class="step-box"><h3>利上げ観測が後退</h3><p>米国の長期金利が低下</p></div>
+            <div class="step-arrow">→</div>
+            <div class="step-box"><h3>米国株が上昇</h3><p>S&amp;P500は0.3%高</p></div>
+          </div>
+          <div class="flow-gap"></div>
+          <div class="flow-row-label"><span class="alert">10/22</span>原油が上がった日</div>
+          <div class="step-flow rg-seq">
+            <div class="step-box"><h3>再攻撃の計画</h3><p>米・イスラエルの報道</p></div>
+            <div class="step-arrow">→</div>
+            <div class="step-box alert"><h3>原油が上昇</h3><p>ブレントは111ドル台</p></div>
+            <div class="step-arrow">→</div>
+            <div class="step-box"><h3>物価・金利の不安</h3><p>利上げが続く心配</p></div>
+            <div class="step-arrow">→</div>
+            <div class="step-box alert-fill"><h3>株価が下落</h3><p>AI株売りも重なる</p></div>
+          </div>
+          <div class="callout"><div class="callout-text">出発点はいつも原油。原油のニュースが出たら、物価・金利・株の順に影響を確かめます。</div></div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span class="src">出典：財経新聞、Yahoo Finance、CNBC、Vantage、日本経済新聞</span><span>N / 総枚数</span></div>
+        </div>
+      </div>
+
+      <!-- ============ 13. 会社・家計への影響 ============ -->
+      <div class="slide" id="s-impact">
+        <div class="slide-inner">
+          <div class="category">PART 3 · WHAT IT MEANS</div>
+          <h2 class="slide-title">会社と家計には、4つの形で届く</h2>
+          <p class="slide-sub"><strong class="red">赤は負担</strong>、紺は追い風。「金利のある世界」は、お金を置く場所しだいで味方にもなります。</p>
+          <div class="two-col rg-pop">
+            <div class="col-box alert"><div class="col-num">01</div><h3>仕入れ・燃料・電気代が上がる</h3><p>原油高と円安が重なると、輸入品や運送費にすぐ響く。値上げの伝え方とタイミングを早めに考える。</p></div>
+            <div class="col-box alert"><div class="col-num">02</div><h3>借入の利息が増える</h3><p>日銀の政策金利は31年ぶりの1.25%で、年内の追加利上げも見込まれる。変動金利の借入は返済計画を確かめる。</p></div>
+            <div class="col-box"><div class="col-num">03</div><h3>預金や債券に利息がつく</h3><p>金利ゼロの時代は終わった。手元資金の置き場所で、受け取る利息に差が出る。</p></div>
+            <div class="col-box"><div class="col-num">04</div><h3>賃上げの圧力が強まる</h3><p>物価が上がると、働く人の生活を守るための賃上げが求められる。価格の見直しと一体で考える。</p></div>
+          </div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span>N / 総枚数</span></div>
+        </div>
+      </div>
+
+      <!-- ============ 14. これからの注目点 ============ -->
+      <div class="slide" id="s-next">
+        <div class="slide-inner">
+          <div class="category">NEXT · WHAT TO WATCH</div>
+          <h2 class="slide-title">これからの予定と、見ておく「3つの節目」</h2>
+          <p class="slide-sub tight" style="margin-bottom:6px;">下の<strong class="red">赤い数字</strong>が警戒ライン。ここを超えるかどうかで、流れが変わります。</p>
+          <div class="svg-figure" style="max-height:200px; padding:0;">
+            <svg viewBox="0 0 1100 175" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <line x1="60" y1="70" x2="1040" y2="70" stroke="#0a1730" stroke-width="2"/>
+              <circle cx="110" cy="70" r="12" fill="#0a1730"/>
+              <text x="110" y="42" text-anchor="middle" fill="#0a1730" font-size="18" font-weight="800">10/27〜28</text>
+              <text x="110" y="110" text-anchor="middle" fill="#0a1730" font-size="17" font-weight="700">米国の金融政策</text>
+              <text x="110" y="136" text-anchor="middle" fill="#3d4f6e" font-size="15">据え置き予想が優勢</text>
+              <circle cx="330" cy="70" r="12" fill="#0a1730"/>
+              <text x="330" y="42" text-anchor="middle" fill="#0a1730" font-size="18" font-weight="800">10/30</text>
+              <text x="330" y="110" text-anchor="middle" fill="#0a1730" font-size="17" font-weight="700">日銀の会合</text>
+              <text x="330" y="136" text-anchor="middle" fill="#3d4f6e" font-size="15">10月より12月利上げ説</text>
+              <circle cx="550" cy="70" r="12" fill="#0a1730"/>
+              <text x="550" y="42" text-anchor="middle" fill="#0a1730" font-size="18" font-weight="800">11/3</text>
+              <text x="550" y="110" text-anchor="middle" fill="#0a1730" font-size="17" font-weight="700">米国の中間選挙</text>
+              <text x="550" y="136" text-anchor="middle" fill="#3d4f6e" font-size="15">中東政策の行方</text>
+              <circle cx="770" cy="70" r="12" fill="#0a1730"/>
+              <text x="770" y="42" text-anchor="middle" fill="#0a1730" font-size="18" font-weight="800">11/10</text>
+              <text x="770" y="110" text-anchor="middle" fill="#0a1730" font-size="17" font-weight="700">米国10月の物価</text>
+              <text x="770" y="136" text-anchor="middle" fill="#3d4f6e" font-size="15">利上げ判断の材料</text>
+              <circle cx="990" cy="70" r="12" fill="#0a1730"/>
+              <text x="990" y="42" text-anchor="middle" fill="#0a1730" font-size="18" font-weight="800">12月</text>
+              <text x="990" y="110" text-anchor="middle" fill="#0a1730" font-size="17" font-weight="700">日米の会合・予算案</text>
+              <text x="990" y="136" text-anchor="middle" fill="#3d4f6e" font-size="15">利上げと財政の山場</text>
+            </svg>
+          </div>
+          <div class="three-col gauge-grid rg-pop" style="margin-top:12px;">
+            <div class="col-box alert"><h3>原油（ブレント）</h3><div class="gauge-num">100<small>ドル</small></div><p>下回れば、物価高の不安が和らぐ</p></div>
+            <div class="col-box alert"><h3>米国の長期金利</h3><div class="gauge-num">5<small>%</small></div><p>上に張り付くほど、株と円の重しになる</p></div>
+            <div class="col-box alert"><h3>ドル円</h3><div class="gauge-num">160<small>円</small></div><p>今年、政府が介入に動いた水準</p></div>
+          </div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span class="src">出典：CNBC、Vantage、ブルームバーグ、MUFG、野村證券</span><span>N / 総枚数</span></div>
+        </div>
+      </div>
+
+      <!-- ============ 15. まとめ ============ -->
+      <div class="slide" id="s-sum">
+        <div class="slide-inner">
+          <div class="category">SUMMARY</div>
+          <h2 class="slide-title">まとめ</h2>
+          <div class="big-message" style="padding:4px 0 0;">
+            <div class="big-text" style="margin-bottom:18px;">いまの経済は、<span class="red-line">原油</span>から読む。</div>
+          </div>
+          <div class="numbered-list sum-list rg-pop" style="gap:22px;">
+            <div class="list-item"><div class="list-num">01</div><div class="list-body"><div class="list-main">原油が上がると、物価が上がる</div><div class="list-note">米国の物価は3.7%。日本は支援で抑えているが、日用品の値上げは広がる</div></div></div>
+            <div class="list-item"><div class="list-num">02</div><div class="list-body"><div class="list-main">物価が上がると、金利が上がる</div><div class="list-note">日米がそろって利上げ。長期金利は米5%台、日本3%前後と歴史的な高さ</div></div></div>
+            <div class="list-item"><div class="list-num">03</div><div class="list-body"><div class="list-main">金利の差が円安を、金利の高さが株の重しを生む</div><div class="list-note">日本は原油高に加え、財政への不安とAI・ITの海外への支払いも円安の重しになる</div></div></div>
+          </div>
+          <div class="callout"><div class="callout-text">ニュースで数字が動いたら、「地図のどこが動いたか」を確かめる習慣を。</div></div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span>N / 総枚数</span></div>
+        </div>
+      </div>
+
+      <!-- ============ 16. 最終ページ ============ -->
+      <div class="slide slide-final">
+        <div class="slide-inner">
+          <div class="category">THANK YOU</div>
+          <h2 class="slide-title">ご清聴<br><span>ありがとうございました</span></h2>
+          <p class="slide-sub">数字は2026年10月22日時点。相場は日々動くため、ご利用の際は最新の値をご確認ください。</p>
+          <div class="meta">
+            <div class="meta-item">
+              <div class="meta-label">CONTACT</div>
+              <div class="meta-value">有限会社ナレッジ・アシスト</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">MAIL</div>
+              <div class="meta-value">asano@knowledge-assist.com</div>
+            </div>
+          </div>
+          <div style="flex:1;"></div>
+          <div class="slide-footer"><span>Knowledge Assist Ltd.</span><span>N / 総枚数</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ナビゲーション:矢印はスライドの左右外側、ドットはスライド下部中央。
+         いずれも .slide-wrapper の中に置くため、スライドと一緒に拡大縮小される。 -->
+    <button class="nav-arrow nav-arrow-left" onclick="prevSlide()" aria-label="前へ">←</button>
+    <button class="nav-arrow nav-arrow-right" onclick="nextSlide()" aria-label="次へ">→</button>
+    <button class="home-btn" id="homeBtn" onclick="goToId('menu')" aria-label="章の選択へ戻る">目次</button>
+    <div class="nav">
+      <div class="dots" id="dots"></div>
+    </div>
+  </div>
+
+  <script>
+    /* このスクリプトは変更せずそのまま使う。
+       dot はスライド枚数から自動生成されるため手作業での追加は不要。 */
+    function scaleSlide() {
+      /* 左右に矢印ボタン(62px)を置くため、横幅から200pxを差し引いてから縮小率を決める */
+      const wrapper = document.getElementById('slideWrapper');
+      const scale = Math.min((window.innerWidth - 200) / 1280, window.innerHeight / 720) * 0.93;
+      wrapper.style.transform = `scale(${Math.max(scale, 0.2)})`;
+    }
+
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    /* ページ番号を自動で入れる:各スライドのフッター右側(最後のspan)に
+       「N / 総枚数」を自動記入する。HTML側は「N / 総枚数」のままでよい。 */
+    slides.forEach((s, i) => {
+      const spans = s.querySelectorAll('.slide-footer span');
+      if (spans.length >= 2) {
+        spans[spans.length - 1].textContent = (i + 1) + ' / ' + slides.length;
+      }
+    });
+
+    /* 章扉の背景番号(section-bignum)が2桁以上なら自動で縮小する */
+    document.querySelectorAll('.section-bignum').forEach(el => {
+      if (el.textContent.trim().length >= 2) el.style.fontSize = '160px';
+    });
+
+    /* dot をスライド枚数分自動生成する */
+    const dotsWrap = document.getElementById('dots');
+    slides.forEach((_, i) => {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.onclick = () => goTo(i);
+      dotsWrap.appendChild(d);
+    });
+    /* #dots 配下に限定して選択する(スライド内の凡例 .dot を誤って拾うとハイライトがずれる) */
+    const dots = document.querySelectorAll('#dots .dot');
+
+    /* id を指定してそのスライドへ飛ぶ。章選択メニューから使う。 */
+    function goToId(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const idx = Array.prototype.indexOf.call(slides, el);
+      if (idx >= 0) goTo(idx);
+    }
+
+    /* data-target を持つ要素はすべて、クリックでその id のスライドへ飛ぶ。
+       章選択カードだけでなく、一覧ページのカードや表の行、SVGの箱にも使える。 */
+    document.querySelectorAll('[data-target]').forEach(el => {
+      el.addEventListener('click', () => goToId(el.dataset.target));
+    });
+
+    /* id="menu" のスライドが無ければ、目次ボタンは表示しない */
+    const homeBtn = document.getElementById('homeBtn');
+    if (homeBtn && !document.getElementById('menu')) homeBtn.style.display = 'none';
+
+    function update() {
+      slides.forEach((s, i) => s.classList.toggle('active', i === current));
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+    function nextSlide() { if (current < slides.length - 1) { current++; update(); } }
+    function prevSlide() { if (current > 0) { current--; update(); } }
+    function goTo(i) { current = i; update(); }
+
+    document.addEventListener('keydown', e => {
+      /* PageDown/PageUp はプレゼン用リモコン(クリッカー)が送るキー */
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown' || e.key === 'Enter') { e.preventDefault(); nextSlide(); }
+      if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'Backspace') { e.preventDefault(); prevSlide(); }
+      if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+      if (e.key === 'End') { e.preventDefault(); goTo(slides.length - 1); }
+      /* M キーで章選択メニュー(id="menu")へ戻る */
+      if (e.key === 'm' || e.key === 'M') { e.preventDefault(); goToId('menu'); }
+      /* F キーで全画面表示の切り替え(セミナー投影用) */
+      if (e.key === 'f' || e.key === 'F') {
+        e.preventDefault();
+        if (document.fullscreenElement) { document.exitFullscreen(); }
+        else if (document.documentElement.requestFullscreen) { document.documentElement.requestFullscreen(); }
+      }
+    });
+
+    /* タブレット・スマホ用:左右スワイプでスライド送り */
+    let touchStartX = null;
+    document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+    document.addEventListener('touchend', e => {
+      if (touchStartX === null) return;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (dx < -50) nextSlide();
+      if (dx > 50) prevSlide();
+      touchStartX = null;
+    }, { passive: true });
+
+    scaleSlide();
+    window.addEventListener('resize', scaleSlide);
+  </script>
+<script>
+/* ===== 対話型計算エンジン(共通・変更不要) ===== */
+(function () {
+  /* ---- 数値ヘルパー ---- */
+  window.calc$ = function (id) { return document.getElementById(id); };
+  window.calcParse = function (el) {
+    var v = parseFloat(String(el.value).replace(/,/g, '')); return isNaN(v) ? 0 : v; };
+  window.calcNum = function (id) { return calcParse(calc$(id)); };
+  window.calcFmt = function (n) { return Math.round(n).toLocaleString('ja-JP'); };
+  window.calcFmtField = function (el) {
+    var v = calcParse(el);
+    el.value = el.dataset.fmt === 'pct' ? v.toFixed(1) : Math.round(v).toLocaleString('ja-JP'); };
+
+  /* ---- ▲▼で数値を増減 ---- */
+  window.calcSpin = function (id, dir) {
+    var el = calc$(id);
+    var step = parseFloat(el.getAttribute('step')) || 1;
+    var minA = el.getAttribute('min');
+    var min = (minA !== null && minA !== '') ? parseFloat(minA) : -Infinity;
+    var v = calcParse(el) + dir * step;
+    v = Math.round(v / step) * step;
+    if (v < min) v = min;
+    el.value = parseFloat(v.toFixed(4));
+    calcFmtField(el);
+    el.dispatchEvent(new Event('input'));
+  };
+
+  /* ---- id指定でそのスライドへ移動(次ページ受け渡し用) ---- */
+  window.goToId = function (id) {
+    var el = document.getElementById(id); if (!el) return;
+    var idx = Array.prototype.indexOf.call(document.querySelectorAll('.slide'), el);
+    if (idx >= 0 && typeof goTo === 'function') goTo(idx);
+  };
+
+  /* ---- 入力・ボタン操作をページ送りに渡さない ----
+     対話スライド内で INPUT/BUTTON 等を操作している間は、キー入力を
+     捕捉(capture)段階で止め、テンプレートのページ送りに届かせない。 */
+  document.addEventListener('keydown', function (e) {
+    var t = e.target;
+    if (!t || !t.closest) return;
+    if (t.closest('[data-interactive]') &&
+        ['INPUT', 'TEXTAREA', 'SELECT', 'BUTTON'].indexOf(t.tagName) >= 0) {
+      e.stopPropagation();
+    }
+  }, true); /* ← 第3引数 true(capture)が重要 */
+
+  /* ---- 初期化:ボタンはクリック後フォーカスを外す/入力を整形 ---- */
+  document.querySelectorAll('[data-interactive] button').forEach(function (b) {
+    b.addEventListener('click', function () { this.blur(); });
+  });
+  document.querySelectorAll('input[data-fmt]').forEach(function (el) {
+    el.addEventListener('blur', function () { calcFmtField(el); });
+    calcFmtField(el);
+  });
+
+  /* ---- 棒グラフ(プラス=濃紺 / マイナス=赤) ---- */
+  /* series: [{label:'65歳', value: 12000000}, ...]
+     opts:   { markIndex: n, markLabel: '確認 90歳' } (任意の縦点線) */
+  window.calcColumnChart = function (canvasId, series, opts) {
+    opts = opts || {};
+    var cv = document.getElementById(canvasId); if (!cv) return;
+    var dpr = window.devicePixelRatio || 1, W = cv.clientWidth, H = cv.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    var ctx = cv.getContext('2d'); ctx.scale(dpr, dpr); ctx.clearRect(0, 0, W, H);
+    var vals = series.map(function (s) { return s.value; });
+    var padL = 66, padR = 16, padT = 20, padB = 30;
+    var plotW = W - padL - padR, plotH = H - padT - padB;
+    var maxY = Math.max(0, Math.max.apply(null, vals));
+    var minY = Math.min(0, Math.min.apply(null, vals));
+    var range = (maxY - minY) || 1;
+    var Y = function (v) { return padT + plotH * (1 - (v - minY) / range); };
+    var n = series.length, band = plotW / n, barW = Math.max(3, band * 0.62);
+    ctx.strokeStyle = '#e6eaf1'; ctx.fillStyle = '#4a5e78';
+    ctx.font = '15px sans-serif'; ctx.textAlign = 'right'; ctx.lineWidth = 1;
+    for (var g = 0; g <= 4; g++) {
+      var gv = minY + range * g / 4, gy = Y(gv);
+      ctx.beginPath(); ctx.moveTo(padL, gy); ctx.lineTo(W - padR, gy); ctx.stroke();
+      ctx.fillText(Math.round(gv / 10000).toLocaleString('ja-JP') + '万', padL - 8, gy + 4);
+    }
+    var yZero = Y(0);
+    for (var i = 0; i < n; i++) {
+      var v = vals[i], x = padL + i * band + (band - barW) / 2, y = Y(v);
+      ctx.fillStyle = v >= 0 ? '#0a1730' : '#dc2626';
+      if (v >= 0) ctx.fillRect(x, y, barW, yZero - y);
+      else ctx.fillRect(x, yZero, barW, y - yZero);
+    }
+    ctx.strokeStyle = '#9aa5b4'; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(padL, yZero); ctx.lineTo(W - padR, yZero); ctx.stroke();
+    ctx.fillStyle = '#4a5e78'; ctx.textAlign = 'center'; ctx.font = '15px sans-serif';
+    for (var j = 0; j < n; j++) {
+      if (series[j].label != null) ctx.fillText(series[j].label, padL + j * band + band / 2, H - 8);
+    }
+    if (opts.markIndex != null && opts.markIndex >= 0) {
+      var mx = padL + opts.markIndex * band + band / 2;
+      ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]);
+      ctx.beginPath(); ctx.moveTo(mx, padT - 4); ctx.lineTo(mx, H - padB); ctx.stroke();
+      ctx.setLineDash([]);
+      if (opts.markLabel) {
+        ctx.fillStyle = '#dc2626'; ctx.font = 'bold 15px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(opts.markLabel, mx, padT - 8);
+      }
+    }
+  };
+
+  /* ---- 折れ線+面グラフ(推移・積立成長など。線は濃紺、目標は赤点線) ---- */
+  /* pts: [数値, 数値, ...]  opts: { target: 目標額, targetLabel:'目標',
+                                     startLabel:'現在', endLabel:'20年後' } */
+  window.calcLineChart = function (canvasId, pts, opts) {
+    opts = opts || {};
+    var cv = document.getElementById(canvasId); if (!cv) return;
+    var dpr = window.devicePixelRatio || 1, W = cv.clientWidth, H = cv.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    var ctx = cv.getContext('2d'); ctx.scale(dpr, dpr); ctx.clearRect(0, 0, W, H);
+    var padL = 66, padR = 24, padT = 20, padB = 28;
+    var plotW = W - padL - padR, plotH = H - padT - padB;
+    var maxY = Math.max(opts.target || 0, Math.max.apply(null, pts)) || 1;
+    var X = function (i) { return padL + plotW * i / ((pts.length - 1) || 1); };
+    var Y = function (v) { return padT + plotH * (1 - v / maxY); };
+    ctx.strokeStyle = '#e6eaf1'; ctx.fillStyle = '#4a5e78';
+    ctx.font = '15px sans-serif'; ctx.textAlign = 'right';
+    for (var g = 0; g <= 3; g++) {
+      var gv = maxY * g / 3, gy = Y(gv);
+      ctx.beginPath(); ctx.moveTo(padL, gy); ctx.lineTo(W - padR, gy); ctx.stroke();
+      ctx.fillText(Math.round(gv / 10000).toLocaleString('ja-JP') + '万', padL - 8, gy + 4);
+    }
+    if (opts.target != null) {
+      var yt = Y(opts.target);
+      ctx.strokeStyle = '#dc2626'; ctx.setLineDash([5, 3]); ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(padL, yt); ctx.lineTo(W - padR, yt); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = '#dc2626'; ctx.textAlign = 'left'; ctx.font = 'bold 15px sans-serif';
+      ctx.fillText(opts.targetLabel || '目標', padL + 4, yt - 5);
+    }
+    ctx.beginPath(); ctx.moveTo(X(0), Y(0));
+    for (var i = 0; i < pts.length; i++) ctx.lineTo(X(i), Y(pts[i]));
+    ctx.lineTo(X(pts.length - 1), Y(0)); ctx.closePath();
+    ctx.fillStyle = 'rgba(10,23,48,0.10)'; ctx.fill();
+    ctx.beginPath();
+    for (var k = 0; k < pts.length; k++) { var x = X(k), y = Y(pts[k]); k ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
+    ctx.strokeStyle = '#0a1730'; ctx.lineWidth = 2.5; ctx.stroke();
+    ctx.fillStyle = '#4a5e78'; ctx.font = '15px sans-serif';
+    ctx.textAlign = 'left'; ctx.fillText(opts.startLabel || '現在', X(0), H - 8);
+    ctx.textAlign = 'right'; ctx.fillText(opts.endLabel || '', X(pts.length - 1), H - 8);
+  };
+})();
+</script>
+<script>
+/* ============================================================
+   motion-kit.js  動く図・グラフ用の共通部品(RG)
+   html-seminar-slides 専用。濃紺テーマ固定・外部ライブラリなし。
+   使い方は references/motion-charts.md を参照。
+   このファイルは変更せず、そのまま script 要素に貼る(assemble_slides.py --motion で自動挿入)。
+   ============================================================ */
+window.RG = (function () {
+  var C = {
+    navy: '#0a1730', mid: '#4a5e78', grey: '#8a98ac', faint: '#c3ccdd',
+    grid: '#e4e9f2', label: '#4a5e78', red: '#dc2626', white: '#ffffff',
+    fillNavy: 'rgba(10,23,48,0.14)', fillRedZone: 'rgba(220,38,38,0.07)'
+  };
+  var FONT = "'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif";
+
+  /* ---- 小さな道具 ---- */
+  function fnt(px, bold) { return (bold ? 'bold ' : '') + Math.max(15, px) + 'px ' + FONT; } /* 15px未満にはしない */
+  function $(id) { return document.getElementById(id); }
+  function fmt(n) { return Math.round(n).toLocaleString('ja-JP'); }
+  function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function ease(p) { return p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2; }
+
+  /* ---- キャンバス準備:<canvas id data-w data-h> を2倍解像度で用意(投影で拡大してもにじまない) ---- */
+  function mk(id) {
+    var cv = $(id), w = +cv.dataset.w, h = +cv.dataset.h;
+    cv.style.width = w + 'px'; cv.style.height = h + 'px';
+    cv.width = w * 2; cv.height = h * 2;
+    var ctx = cv.getContext('2d'); ctx.setTransform(2, 0, 0, 2, 0, 0);
+    ctx.W = w; ctx.H = h; return ctx;
+  }
+
+  /* ---- 座標軸つきの枠を描き、座標変換 sx/sy を返す ----
+     o = { xr:[最小,最大], yr:[最小,最大], xt:[目盛], yt:[目盛], fx/fy:目盛の書式,
+           xTitle, yTitle, pad:{l,r,t,b}, bg:function(B,sx,sy){背景を先に描く} } */
+  function frame(ctx, o) {
+    var p = Object.assign({ l: 66, r: 20, t: 16, b: 54 }, o.pad || {});
+    var W = ctx.W, H = ctx.H, B = { x: p.l, y: p.t, w: W - p.l - p.r, h: H - p.t - p.b };
+    var sx = function (v) { return B.x + (v - o.xr[0]) / (o.xr[1] - o.xr[0]) * B.w; };
+    var sy = function (v) { return B.y + B.h - (v - o.yr[0]) / (o.yr[1] - o.yr[0]) * B.h; };
+    ctx.clearRect(0, 0, W, H);
+    if (o.bg) o.bg(B, sx, sy);
+    ctx.font = fnt(15); ctx.textBaseline = 'middle'; ctx.textAlign = 'right';
+    (o.yt || []).forEach(function (t) {
+      var y = sy(t);
+      ctx.strokeStyle = C.grid; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(B.x, y); ctx.lineTo(B.x + B.w, y); ctx.stroke();
+      ctx.fillStyle = C.label; ctx.fillText(o.fy ? o.fy(t) : t, B.x - 8, y);
+    });
+    ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    (o.xt || []).forEach(function (t) { ctx.fillStyle = C.label; ctx.fillText(o.fx ? o.fx(t) : t, sx(t), B.y + B.h + 8); });
+    ctx.strokeStyle = C.faint; ctx.lineWidth = 1.5; ctx.beginPath();
+    ctx.moveTo(B.x, B.y); ctx.lineTo(B.x, B.y + B.h); ctx.lineTo(B.x + B.w, B.y + B.h); ctx.stroke();
+    ctx.fillStyle = C.label; ctx.font = fnt(15); ctx.textBaseline = 'bottom';
+    if (o.xTitle) ctx.fillText(o.xTitle, B.x + B.w / 2, H - 2);
+    if (o.yTitle) { ctx.save(); ctx.translate(16, B.y + B.h / 2); ctx.rotate(-Math.PI / 2); ctx.textBaseline = 'middle'; ctx.fillText(o.yTitle, 0, 0); ctx.restore(); }
+    ctx.textBaseline = 'alphabetic';
+    return { B: B, sx: sx, sy: sy };
+  }
+
+  /* ---- 描画部品 ---- */
+  function clip(ctx, B) { ctx.save(); ctx.beginPath(); ctx.rect(B.x, B.y, B.w, B.h); ctx.clip(); } /* 終わったら ctx.restore() */
+  function dot(ctx, x, y, r, fill, stroke) {
+    ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2);
+    if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+    if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = 2; ctx.stroke(); }
+  }
+  function seg(ctx, x1, y1, x2, y2, color, width, dash) {
+    ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2);
+    ctx.strokeStyle = color; ctx.lineWidth = width || 2; ctx.setLineDash(dash || []); ctx.stroke(); ctx.setLineDash([]);
+  }
+  /* 直線 y=a+bx を x1〜x2 で描く */
+  function line(ctx, F, a, b, x1, x2, color, width, dash) { seg(ctx, F.sx(x1), F.sy(a + b * x1), F.sx(x2), F.sy(a + b * x2), color || C.navy, width || 3, dash); }
+  /* 曲線 y=f(x) を x1〜x2 で描く */
+  function curve(ctx, F, f, x1, x2, color, width, step) {
+    step = step || (x2 - x1) / 200; ctx.beginPath();
+    for (var x = x1, i = 0; x <= x2 + 1e-9; x += step, i++) { var px = F.sx(x), py = F.sy(f(x)); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+    ctx.strokeStyle = color || C.navy; ctx.lineWidth = width || 3; ctx.setLineDash([]); ctx.stroke();
+  }
+  /* 帯(下限 lo(x)〜上限 hi(x))を塗る:予測の幅など */
+  function band(ctx, F, lo, hi, x1, x2, fill, step) {
+    step = step || (x2 - x1) / 200; ctx.beginPath(); var x;
+    for (x = x1; x <= x2 + 1e-9; x += step) { x === x1 ? ctx.moveTo(F.sx(x), F.sy(hi(x))) : ctx.lineTo(F.sx(x), F.sy(hi(x))); }
+    for (x = x2; x >= x1 - 1e-9; x -= step) ctx.lineTo(F.sx(x), F.sy(lo(x)));
+    ctx.closePath(); ctx.fillStyle = fill || C.fillNavy; ctx.fill();
+  }
+  /* 範囲 x1〜x2 を淡い赤で塗り、上端にラベル(「データの外側」など)。frame の bg から呼ぶ */
+  function zone(ctx, B, sx, x1, x2, text) {
+    ctx.fillStyle = C.fillRedZone; ctx.fillRect(sx(x1), B.y, sx(x2) - sx(x1), B.h);
+    if (text) { ctx.fillStyle = C.red; ctx.font = fnt(15, true); ctx.textAlign = 'center'; ctx.textBaseline = 'top'; ctx.fillText(text, (sx(x1) + sx(x2)) / 2, B.y + 8); ctx.textBaseline = 'alphabetic'; }
+  }
+  /* 白いふち取りつき文字。点や線に重なっても読める(重なり防止の最後の砦) */
+  function label(ctx, text, x, y) {
+    ctx.save(); ctx.lineWidth = 5; ctx.strokeStyle = '#ffffff'; ctx.lineJoin = 'round'; ctx.strokeText(text, x, y); ctx.restore(); ctx.fillText(text, x, y);
+  }
+
+  /* ---- 統計の計算 ---- */
+  /* 単回帰(最小二乗法)。a=切片 b=傾き r2=決定係数 s=残差の標準偏差 */
+  function fit(xs, ys) {
+    var n = xs.length, mx = 0, my = 0, i;
+    for (i = 0; i < n; i++) { mx += xs[i]; my += ys[i]; }
+    mx /= n; my /= n;
+    var sxx = 0, sxy = 0, sst = 0;
+    for (i = 0; i < n; i++) { sxx += (xs[i] - mx) * (xs[i] - mx); sxy += (xs[i] - mx) * (ys[i] - my); sst += (ys[i] - my) * (ys[i] - my); }
+    var b = sxy / sxx, a = my - b * mx, sse = 0;
+    for (i = 0; i < n; i++) { var e = ys[i] - (a + b * xs[i]); sse += e * e; }
+    return { a: a, b: b, sse: sse, sst: sst, r2: 1 - sse / sst, mx: mx, sxx: sxx, n: n, s: Math.sqrt(sse / (n - 2)) };
+  }
+  function sseOf(xs, ys, a, b) { var s = 0; for (var i = 0; i < xs.length; i++) { var e = ys[i] - (a + b * xs[i]); s += e * e; } return s; }
+  /* 予測区間の半幅(95%)。t は自由度 n-2 のt値(n=12→2.228, n=20→2.101, n=30→2.048) */
+  function predHalf(f, x, t) { return t * f.s * Math.sqrt(1 + 1 / f.n + (x - f.mx) * (x - f.mx) / f.sxx); }
+  function quantile(arr, p) { var s = arr.slice().sort(function (a, b) { return a - b; }); var i = (s.length - 1) * p, lo = Math.floor(i), hi = Math.ceil(i); return lerp(s[lo], s[hi], i - lo); }
+  /* 再現できる乱数(開くたびに同じ結果になる。Math.random は使わない) */
+  function rng(seed) { return function () { seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  function normal(r) { var u = 0, v = 0; while (u === 0) u = r(); while (v === 0) v = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+
+  /* ---- アニメーション ---- */
+  /* スライドが表示された/離れたときに呼ぶ。id はスライドの id */
+  var hooks = {};
+  function onSlide(id, enter, leave) { hooks[id] = { enter: enter, leave: leave }; }
+  function startObserver() {
+    var obs = new MutationObserver(function (ms) {
+      ms.forEach(function (m) {
+        var el = m.target, h = hooks[el.id]; if (!h) return;
+        var act = el.classList.contains('active');
+        if (act && !el._rgAct) { el._rgAct = true; if (h.enter) h.enter(); }
+        else if (!act && el._rgAct) { el._rgAct = false; if (h.leave) h.leave(); }
+      });
+    });
+    document.querySelectorAll('.slide[id]').forEach(function (s) { obs.observe(s, { attributes: true, attributeFilter: ['class'] }); });
+  }
+  /* dur ミリ秒かけて step(p) を p=0→1 で呼ぶ。戻り値の .stop=true で止まる */
+  function play(dur, step, done) {
+    var h = { stop: false }, t0 = null;
+    function fr(now) { if (h.stop) return; if (t0 === null) t0 = now; var p = Math.min(1, (now - t0) / dur); step(p); if (p < 1) requestAnimationFrame(fr); else if (done) done(); }
+    requestAnimationFrame(fr); return h;
+  }
+  /* ms 後に fn。list に入れておけば stopAll で取り消せる */
+  function after(ms, fn, list) { var t = setTimeout(fn, ms), h = { set stop(v) { if (v) clearTimeout(t); } }; if (list) list.push(h); return h; }
+  function stopAll(list) { list.forEach(function (h) { if (h) h.stop = true; }); list.length = 0; }
+  /* スライダー(id)を keys の値の順に自動で動かして見せる。利用者がつかむと止まる */
+  function sweep(id, keys, dur, draw, list) {
+    var el = $(id), n = keys.length - 1;
+    if (!el._rgSweep) { el._rgSweep = true; el.addEventListener('pointerdown', function () { stopAll(list); }); }
+    list.push(play(dur, function (p) {
+      var k = Math.min(n - 1, Math.floor(p * n)), q = ease(p * n - k);
+      el.value = lerp(keys[k], keys[k + 1], p >= 1 ? 1 : q); draw();
+    }));
+  }
+  /* 点をつかんで動かす。getXY()→{x,y}(キャンバス上の位置), onMove(x,y)(キャンバス座標), onEnd() */
+  function draggable(cv, ctx, getXY, onMove, onEnd, radius) {
+    var drag = false; radius = radius || 28;
+    function pos(e) { var r = cv.getBoundingClientRect(); return { x: (e.clientX - r.left) * ctx.W / r.width, y: (e.clientY - r.top) * ctx.H / r.height }; }
+    cv.style.touchAction = 'none'; cv.style.cursor = 'grab';
+    cv.addEventListener('pointerdown', function (e) { var p = pos(e), q = getXY(); if (q && Math.hypot(p.x - q.x, p.y - q.y) < radius) { drag = true; cv.setPointerCapture(e.pointerId); cv.style.cursor = 'grabbing'; e.preventDefault(); } });
+    cv.addEventListener('pointermove', function (e) { if (drag) { var p = pos(e); onMove(p.x, p.y); } });
+    function end() { if (drag) { drag = false; cv.style.cursor = 'grab'; if (onEnd) onEnd(); } }
+    cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end);
+    return function () { return drag; };
+  }
+
+  /* ---- 初期化:スライダー・キャンバス操作をページ送り(スワイプ)にしない ---- */
+  function init() {
+    document.querySelectorAll('[data-interactive] input, [data-interactive] canvas').forEach(function (el) {
+      ['touchstart', 'touchend'].forEach(function (ev) { el.addEventListener(ev, function (e) { e.stopPropagation(); }, { passive: true }); });
+    });
+    document.querySelectorAll('.rg-range').forEach(function (el) { el.addEventListener('change', function () { el.blur(); }); });
+    /* 数字が数え上がる:<span class="rg-count" data-to="2.94" data-dec="2"> をスライド表示時に 0 から */
+    document.querySelectorAll('.slide[id]').forEach(function (s) {
+      var els = s.querySelectorAll('.rg-count'); if (!els.length || hooks[s.id]) return;
+      var anim = [];
+      onSlide(s.id, function () {
+        stopAll(anim);
+        anim.push(play(1400, function (p) { var e = ease(p); els.forEach(function (el) { el.textContent = (parseFloat(el.dataset.to) * e).toFixed(+el.dataset.dec || 0); }); }));
+      }, function () { stopAll(anim); els.forEach(function (el) { el.textContent = parseFloat(el.dataset.to).toFixed(+el.dataset.dec || 0); }); });
+    });
+    startObserver();
+  }
+  /* スライド固有コードが onSlide を登録し終えてから監視を始める */
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else setTimeout(init, 0);
+
+  return {
+    C: C, fnt: fnt, $: $, fmt: fmt, clamp: clamp, lerp: lerp, ease: ease,
+    mk: mk, frame: frame, clip: clip, dot: dot, seg: seg, line: line, curve: curve, band: band, zone: zone, label: label,
+    fit: fit, sseOf: sseOf, predHalf: predHalf, quantile: quantile, rng: rng, normal: normal,
+    onSlide: onSlide, play: play, after: after, stopAll: stopAll, sweep: sweep, draggable: draggable
+  };
+})();
+
+</script>
+<script>
+/* いまの経済をつなげて読む：スライドごとの描画コード */
+
+/* ---- 4. 原油：主な日の価格(棒が伸びる) ---- */
+(function () {
+  var ctx = RG.mk('cvOil'), anim = [];
+  var L = ['2/27', '3/9', '4/7', '5/11', '6/11', '10/21'];
+  var V = [67, 119, 113, 98, 93, 97];
+  var cfg = { xr: [0, 6], yr: [0, 140], yt: [0, 30, 60, 90, 120],
+              xt: [0.5, 1.5, 2.5, 3.5, 4.5, 5.5], fx: function (t) { return L[Math.floor(t)]; },
+              yTitle: 'ドル / バレル', pad: { t: 30, l: 70 } };
+  function draw(p) {
+    if (p == null) p = 1;
+    var F = RG.frame(ctx, cfg);
+    V.forEach(function (v, i) {
+      var q = RG.clamp(p * 1.6 - i * 0.12, 0, 1), h = v * RG.ease(q);
+      var x0 = F.sx(i + 0.2), x1 = F.sx(i + 0.8);
+      ctx.fillStyle = i === 0 ? RG.C.grey : (i === 1 ? RG.C.red : RG.C.navy);
+      ctx.fillRect(x0, F.sy(h), x1 - x0, F.sy(0) - F.sy(h));
+      if (q >= 1) {
+        ctx.fillStyle = i === 1 ? RG.C.red : RG.C.navy; ctx.font = RG.fnt(18, true); ctx.textAlign = 'center';
+        ctx.fillText(v, (x0 + x1) / 2, F.sy(v) - 9);
+      }
+    });
+  }
+  draw();
+  RG.onSlide('s-oil', function () { RG.stopAll(anim); anim.push(RG.play(1600, draw)); },
+                      function () { RG.stopAll(anim); draw(1); });
+})();
+
+/* ---- 5. 物価：日米の比較と目標2% ---- */
+(function () {
+  var ctx = RG.mk('cvPrice'), anim = [];
+  var L = ['米国 総合', '米国 食料・エネ除く', '日本 総合', '日本 生鮮食品除く'];
+  var V = [3.7, 2.6, 1.9, 1.7];
+  var cfg = { xr: [0, 4], yr: [0, 4.5], yt: [0, 1, 2, 3, 4], fy: function (t) { return t + '%'; },
+              xt: [0.5, 1.5, 2.5, 3.5], fx: function (t) { return L[Math.floor(t)]; },
+              yTitle: '前年比', pad: { t: 30, r: 92, l: 66 } };
+  function draw(p) {
+    if (p == null) p = 1;
+    var F = RG.frame(ctx, cfg);
+    V.forEach(function (v, i) {
+      var q = RG.clamp(p * 1.5 - i * 0.12, 0, 1), h = v * RG.ease(q);
+      var x0 = F.sx(i + 0.22), x1 = F.sx(i + 0.78);
+      ctx.fillStyle = i < 2 ? RG.C.navy : RG.C.mid;
+      var hb = Math.min(h, 2);
+      ctx.fillRect(x0, F.sy(hb), x1 - x0, F.sy(0) - F.sy(hb));
+      if (h > 2) { ctx.fillStyle = RG.C.red; ctx.fillRect(x0, F.sy(h), x1 - x0, F.sy(2) - F.sy(h)); }  /* 目標を超えた分は赤 */
+      if (q >= 1) {
+        /* 数字は棒の内側(白文字)に置き、目標2%の線と重ねない */
+        ctx.fillStyle = '#ffffff'; ctx.font = RG.fnt(20, true); ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+        ctx.fillText(v.toFixed(1) + '%', (x0 + x1) / 2, F.sy(v) + 10);
+        ctx.textBaseline = 'alphabetic';
+      }
+    });
+    /* 目標2%の線(赤い点線)。ラベルは枠の右外の余白に置いて棒と重ねない */
+    RG.seg(ctx, F.B.x, F.sy(2), F.B.x + F.B.w, F.sy(2), RG.C.red, 2, [7, 5]);
+    ctx.fillStyle = RG.C.red; ctx.font = RG.fnt(15, true); ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    ctx.fillText('目標 2%', F.B.x + F.B.w + 10, F.sy(2));
+    ctx.textBaseline = 'alphabetic';
+  }
+  draw();
+  RG.onSlide('s-price', function () { RG.stopAll(anim); anim.push(RG.play(1500, draw)); },
+                        function () { RG.stopAll(anim); draw(1); });
+})();
+
+/* ---- 7. 債券：金利と値段のシーソー(スライダー) ---- */
+(function () {
+  var ctx = RG.mk('cvBond'), anim = [];
+  function price(r) { var s = 0, k = 1 + r / 100; for (var t = 1; t <= 10; t++) s += 2 / Math.pow(k, t); return s + 100 / Math.pow(k, 10); }
+  var cfg = { xr: [0.5, 5], yr: [70, 120], xt: [1, 2, 3, 4, 5], fx: function (t) { return t + '%'; },
+              yt: [70, 80, 90, 100, 110, 120], fy: function (t) { return t + '円'; },
+              xTitle: '市場の金利', yTitle: '債券の値段', pad: { l: 74, t: 20, r: 24 } };
+  function draw() {
+    var r = +RG.$('bR').value, p = price(r);
+    var F = RG.frame(ctx, cfg);
+    RG.seg(ctx, F.B.x, F.sy(100), F.B.x + F.B.w, F.sy(100), RG.C.grey, 1.5, [6, 5]);
+    RG.clip(ctx, F.B); RG.curve(ctx, F, price, 0.5, 2, RG.C.navy, 3); RG.curve(ctx, F, price, 2, 5, RG.C.red, 3); ctx.restore();  /* 100円割れ(値下がり)の部分は赤 */
+    RG.seg(ctx, F.sx(r), F.sy(p), F.sx(r), F.B.y + F.B.h, RG.C.mid, 1.5, [4, 4]);
+    RG.seg(ctx, F.B.x, F.sy(p), F.sx(r), F.sy(p), RG.C.mid, 1.5, [4, 4]);
+    RG.dot(ctx, F.sx(r), F.sy(p), 9, p < 100 ? RG.C.red : RG.C.navy, '#ffffff');
+    RG.$('bRv').textContent = r.toFixed(1);
+    RG.$('bP').innerHTML = p.toFixed(1) + '<small>円</small>';
+    var d = p - 100;
+    RG.$('bNote').textContent = Math.abs(d) < 0.05 ? '買った時と同じ金利なので、値段も100円のまま'
+      : (d < 0 ? '買った値段より ' + (-d).toFixed(1) + '円 安い（値下がり）' : '買った値段より ' + d.toFixed(1) + '円 高い（値上がり）');
+    RG.$('bCard').classList.toggle('is-alert', d < -0.05);
+  }
+  RG.$('bR').addEventListener('input', draw);
+  draw();
+  RG.onSlide('s-bond', function () { RG.stopAll(anim); RG.sweep('bR', [2, 4.5, 1, 2.9], 5200, draw, anim); },
+                       function () { RG.stopAll(anim); RG.$('bR').value = 2.9; draw(); });
+})();
+
+/* ---- 11. 株価：日経平均の主な節目(線が描かれていく) ---- */
+(function () {
+  var ctx = RG.mk('cvStock'), anim = [];
+  /* x は1月1日からの日数 */
+  var P = [
+    { x: 90,  y: 50559, t: '3/31 安値 50,559円', pos: 'belowR' },
+    { x: 173, y: 72832, t: '6/22 最高値 72,832円', pos: 'above' },
+    { x: 209, y: 62000, t: '7/28 一時 6万2千円割れ', pos: 'below' },
+    { x: 295, y: 62907, t: '10/22 62,907円', pos: 'aboveL' }
+  ];
+  var cfg = { xr: [75, 305], yr: [45000, 78000], yt: [50000, 60000, 70000],
+              fy: function (t) { return (t / 10000) + '万円'; },
+              xt: [91, 152, 213, 274], fx: function (t) { return { 91: '4月', 152: '6月', 213: '8月', 274: '10月' }[t]; },
+              yTitle: '日経平均株価', pad: { l: 80, t: 24, r: 30 } };
+  function draw(p) {
+    if (p == null) p = 1;
+    var F = RG.frame(ctx, cfg);
+    var n = P.length - 1, upto = p * n;
+    /* 最高値までは紺、最高値からの下落は赤 */
+    for (var j = 0; j < n; j++) {
+      var f = RG.clamp(upto - j, 0, 1); if (f <= 0) break;
+      var a = P[j], b = P[j + 1];
+      RG.seg(ctx, F.sx(a.x), F.sy(a.y), F.sx(RG.lerp(a.x, b.x, f)), F.sy(RG.lerp(a.y, b.y, f)), j === 0 ? RG.C.navy : RG.C.red, 3);
+    }
+    ctx.font = RG.fnt(15, true); ctx.fillStyle = RG.C.navy;
+    P.forEach(function (q, i) {
+      if (i > upto + 1e-9) return;
+      var px = F.sx(q.x), py = F.sy(q.y);
+      RG.dot(ctx, px, py, 7, i >= 2 ? RG.C.red : RG.C.navy, '#ffffff');
+      ctx.fillStyle = i === 3 ? RG.C.red : RG.C.navy;
+      ctx.textBaseline = 'middle';
+      if (q.pos === 'above') { ctx.textAlign = 'center'; RG.label(ctx, q.t, px, py - 22); }
+      else if (q.pos === 'aboveL') { ctx.textAlign = 'right'; RG.label(ctx, q.t, px + 8, py - 24); }
+      else if (q.pos === 'belowR') { ctx.textAlign = 'left'; RG.label(ctx, q.t, px - 10, py + 24); }
+      else { ctx.textAlign = 'center'; RG.label(ctx, q.t, px, py + 24); }
+      ctx.textBaseline = 'alphabetic';
+    });
+  }
+  draw();
+  RG.onSlide('s-stock', function () { RG.stopAll(anim); anim.push(RG.play(2200, draw)); },
+                        function () { RG.stopAll(anim); draw(1); });
+})();
+
+/* ---- 12. AI：生成AIの利用経験(棒が伸びる・日本だけ濃紺) ---- */
+(function () {
+  var ctx = RG.mk('cvAI'), anim = [];
+  var L = ['日本', '米国', 'ドイツ', '中国'];
+  var V = [58.8, 75.6, 75.6, 93.6];
+  var cfg = { xr: [0, 4], yr: [0, 100], yt: [0, 25, 50, 75, 100], fy: function (t) { return t + '%'; },
+              xt: [0.5, 1.5, 2.5, 3.5], fx: function (t) { return L[Math.floor(t)]; },
+              pad: { t: 30, l: 60, b: 40 } };
+  function draw(p) {
+    if (p == null) p = 1;
+    var F = RG.frame(ctx, cfg);
+    V.forEach(function (v, i) {
+      var q = RG.clamp(p * 1.5 - i * 0.12, 0, 1), h = v * RG.ease(q);
+      var x0 = F.sx(i + 0.22), x1 = F.sx(i + 0.78);
+      ctx.fillStyle = i === 0 ? RG.C.red : RG.C.grey;
+      ctx.fillRect(x0, F.sy(h), x1 - x0, F.sy(0) - F.sy(h));
+      if (q >= 1) {
+        ctx.fillStyle = i === 0 ? RG.C.red : RG.C.navy; ctx.font = RG.fnt(20, true); ctx.textAlign = 'center';
+        ctx.fillText(v.toFixed(1) + '%', (x0 + x1) / 2, F.sy(v) - 10);
+      }
+    });
+  }
+  draw();
+  RG.onSlide('s-ai', function () { RG.stopAll(anim); anim.push(RG.play(1500, draw)); },
+                     function () { RG.stopAll(anim); draw(1); });
+})();
+
+</script>
+</body>
+</html>
