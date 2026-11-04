@@ -1,98 +1,18 @@
 {
   "schema_version": 1,
-  "attempted_at": "2026-11-03T16:21:45+00:00",
+  "attempted_at": "2026-11-04T01:28:30+00:00",
   "metrics": {
     "jp10": {
       "value": 2.817,
-      "date": "2026-10-30",
+      "date": "2026-11-02",
       "source": "https://www.mof.go.jp/jgbs/reference/interest_rate/jgbcm.csv",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-03T16:21:44+00:00",
+      "fetched_at": "2026-11-04T01:28:30+00:00",
       "status": "ok",
       "history": [
         {
-          "date": "2026-10-01",
-          "value": 3.092
-        },
-        {
-          "date": "2026-10-02",
-          "value": 3.097
-        },
-        {
-          "date": "2026-10-05",
-          "value": 3.085
-        },
-        {
-          "date": "2026-10-06",
-          "value": 3.103
-        },
-        {
-          "date": "2026-10-07",
-          "value": 3.111
-        },
-        {
-          "date": "2026-10-08",
-          "value": 3.089
-        },
-        {
-          "date": "2026-10-09",
-          "value": 3.027
-        },
-        {
-          "date": "2026-10-13",
-          "value": 3.019
-        },
-        {
-          "date": "2026-10-14",
-          "value": 3.015
-        },
-        {
-          "date": "2026-10-15",
-          "value": 2.948
-        },
-        {
-          "date": "2026-10-16",
-          "value": 2.958
-        },
-        {
-          "date": "2026-10-19",
-          "value": 2.935
-        },
-        {
-          "date": "2026-10-20",
-          "value": 2.927
-        },
-        {
-          "date": "2026-10-21",
-          "value": 2.923
-        },
-        {
-          "date": "2026-10-22",
-          "value": 2.914
-        },
-        {
-          "date": "2026-10-23",
-          "value": 2.837
-        },
-        {
-          "date": "2026-10-26",
-          "value": 2.824
-        },
-        {
-          "date": "2026-10-27",
-          "value": 2.829
-        },
-        {
-          "date": "2026-10-28",
-          "value": 2.867
-        },
-        {
-          "date": "2026-10-29",
-          "value": 2.876
-        },
-        {
-          "date": "2026-10-30",
+          "date": "2026-11-02",
           "value": 2.817
         }
       ]
@@ -103,7 +23,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-03T16:21:44+00:00",
+      "fetched_at": "2026-11-04T01:28:29+00:00",
       "status": "ok",
       "released": "2026-10-23"
     },
@@ -113,7 +33,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-03T16:21:44+00:00",
+      "fetched_at": "2026-11-04T01:28:29+00:00",
       "status": "ok",
       "released": "2026-10-23"
     },
@@ -123,7 +43,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-03T16:21:44+00:00",
+      "fetched_at": "2026-11-04T01:28:29+00:00",
       "status": "ok",
       "released": "2026-10-23"
     },
@@ -133,7 +53,7 @@
       "source": "https://www.bls.gov/news.release/cpi.nr0.htm",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-03T16:21:44+00:00",
+      "fetched_at": "2026-11-04T01:28:29+00:00",
       "status": "ok"
     },
     "us_core": {
@@ -142,7 +62,7 @@
       "source": "https://www.bls.gov/news.release/cpi.nr0.htm",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-03T16:21:44+00:00",
+      "fetched_at": "2026-11-04T01:28:29+00:00",
       "status": "ok"
     },
     "jp_policy": {
@@ -151,7 +71,7 @@
       "source": "https://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k261030a.pdf",
       "unit": "%",
       "frequency": "政策決定日",
-      "fetched_at": "2026-11-03T16:21:45+00:00",
+      "fetched_at": "2026-11-04T01:28:30+00:00",
       "status": "ok"
     },
     "brent": {
@@ -160,7 +80,7 @@
       "source": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
       "unit": "ドル／バレル",
       "frequency": "日次",
-      "fetched_at": "2026-11-03T16:21:43+00:00",
+      "fetched_at": "2026-11-04T01:28:28+00:00",
       "status": "ok",
       "history": [
         {
@@ -1651,7 +1571,7 @@
       "source": "https://fred.stlouisfed.org/series/DCOILWTICO",
       "unit": "ドル／バレル",
       "frequency": "日次",
-      "fetched_at": "2026-11-03T16:21:43+00:00",
+      "fetched_at": "2026-11-04T01:28:28+00:00",
       "status": "ok",
       "history": [
         {
@@ -3142,7 +3062,7 @@
       "source": "https://fred.stlouisfed.org/series/DEXJPUS",
       "unit": "円／ドル",
       "frequency": "日次",
-      "fetched_at": "2026-11-03T16:21:43+00:00",
+      "fetched_at": "2026-11-04T01:28:29+00:00",
       "status": "ok",
       "history": [
         {
@@ -4628,18 +4548,14 @@
       ]
     },
     "us10": {
-      "value": 4.94,
-      "date": "2026-10-30",
+      "value": 4.91,
+      "date": "2026-11-02",
       "source": "https://fred.stlouisfed.org/series/DGS10",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-03T16:21:44+00:00",
+      "fetched_at": "2026-11-04T01:28:29+00:00",
       "status": "ok",
       "history": [
-        {
-          "date": "2025-05-09",
-          "value": 4.37
-        },
         {
           "date": "2025-05-12",
           "value": 4.45
@@ -6115,6 +6031,10 @@
         {
           "date": "2026-10-30",
           "value": 4.94
+        },
+        {
+          "date": "2026-11-02",
+          "value": 4.91
         }
       ]
     },
@@ -6124,7 +6044,7 @@
       "source": "https://fred.stlouisfed.org/series/DFEDTARU",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-03T16:21:44+00:00",
+      "fetched_at": "2026-11-04T01:28:29+00:00",
       "status": "ok",
       "history": [
         {
@@ -7615,7 +7535,7 @@
       "source": "https://fred.stlouisfed.org/series/DFEDTARL",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-03T16:21:44+00:00",
+      "fetched_at": "2026-11-04T01:28:29+00:00",
       "status": "ok",
       "history": [
         {
