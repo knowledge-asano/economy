@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "attempted_at": "2026-11-06T01:37:58+00:00",
+  "attempted_at": "2026-11-06T16:03:13+00:00",
   "metrics": {
     "jp10": {
       "value": 2.806,
@@ -8,7 +8,7 @@
       "source": "https://www.mof.go.jp/jgbs/reference/interest_rate/jgbcm.csv",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-06T01:37:58+00:00",
+      "fetched_at": "2026-11-06T16:02:23+00:00",
       "status": "ok",
       "history": [
         {
@@ -31,7 +31,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-06T01:37:57+00:00",
+      "fetched_at": "2026-11-06T16:02:22+00:00",
       "status": "ok",
       "released": "2026-10-23"
     },
@@ -41,7 +41,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-06T01:37:57+00:00",
+      "fetched_at": "2026-11-06T16:02:22+00:00",
       "status": "ok",
       "released": "2026-10-23"
     },
@@ -51,7 +51,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-06T01:37:57+00:00",
+      "fetched_at": "2026-11-06T16:02:22+00:00",
       "status": "ok",
       "released": "2026-10-23"
     },
@@ -62,7 +62,7 @@
       "unit": "%",
       "frequency": "月次・前年比",
       "fetched_at": "2026-11-06T01:37:56+00:00",
-      "status": "ok"
+      "status": "retained"
     },
     "us_core": {
       "value": 2.6,
@@ -71,7 +71,7 @@
       "unit": "%",
       "frequency": "月次・前年比",
       "fetched_at": "2026-11-06T01:37:56+00:00",
-      "status": "ok"
+      "status": "retained"
     },
     "jp_policy": {
       "value": 1.25,
@@ -79,7 +79,7 @@
       "source": "https://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k261030a.pdf",
       "unit": "%",
       "frequency": "政策決定日",
-      "fetched_at": "2026-11-06T01:37:57+00:00",
+      "fetched_at": "2026-11-06T16:02:24+00:00",
       "status": "ok"
     },
     "brent": {
@@ -89,7 +89,7 @@
       "unit": "ドル／バレル",
       "frequency": "日次",
       "fetched_at": "2026-11-06T01:37:56+00:00",
-      "status": "ok",
+      "status": "retained",
       "history": [
         {
           "date": "2025-05-21",
@@ -1580,7 +1580,7 @@
       "unit": "ドル／バレル",
       "frequency": "日次",
       "fetched_at": "2026-11-06T01:37:56+00:00",
-      "status": "ok",
+      "status": "retained",
       "history": [
         {
           "date": "2025-05-13",
@@ -3071,7 +3071,7 @@
       "unit": "円／ドル",
       "frequency": "日次",
       "fetched_at": "2026-11-06T01:37:56+00:00",
-      "status": "ok",
+      "status": "retained",
       "history": [
         {
           "date": "2025-05-09",
@@ -4562,7 +4562,7 @@
       "unit": "%",
       "frequency": "日次",
       "fetched_at": "2026-11-06T01:37:56+00:00",
-      "status": "ok",
+      "status": "retained",
       "history": [
         {
           "date": "2025-05-14",
@@ -6053,7 +6053,7 @@
       "unit": "%",
       "frequency": "日次",
       "fetched_at": "2026-11-06T01:37:56+00:00",
-      "status": "ok",
+      "status": "retained",
       "history": [
         {
           "date": "2025-11-01",
@@ -7544,7 +7544,7 @@
       "unit": "%",
       "frequency": "日次",
       "fetched_at": "2026-11-06T01:37:56+00:00",
-      "status": "ok",
+      "status": "retained",
       "history": [
         {
           "date": "2025-11-01",
@@ -9029,7 +9029,15 @@
       ]
     }
   },
-  "errors": {},
+  "errors": {
+    "wti": "TimeoutError: The read operation timed out",
+    "us10": "TimeoutError: The read operation timed out",
+    "fx": "TimeoutError: The read operation timed out",
+    "brent": "TimeoutError: The read operation timed out",
+    "us_cpi_release": "HTTPError: HTTP Error 403: Forbidden",
+    "us_policy_low": "TimeoutError: The read operation timed out",
+    "us_policy_high": "TimeoutError: The read operation timed out"
+  },
   "mode": "official-public-observations",
   "stock_indices": "official_links_only"
 }
