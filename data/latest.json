@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "attempted_at": "2026-11-06T16:03:13+00:00",
+  "attempted_at": "2026-11-07T00:58:26+00:00",
   "metrics": {
     "jp10": {
       "value": 2.806,
@@ -8,7 +8,7 @@
       "source": "https://www.mof.go.jp/jgbs/reference/interest_rate/jgbcm.csv",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-06T16:02:23+00:00",
+      "fetched_at": "2026-11-07T00:58:25+00:00",
       "status": "ok",
       "history": [
         {
@@ -31,7 +31,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-06T16:02:22+00:00",
+      "fetched_at": "2026-11-07T00:58:25+00:00",
       "status": "ok",
       "released": "2026-10-23"
     },
@@ -41,7 +41,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-06T16:02:22+00:00",
+      "fetched_at": "2026-11-07T00:58:25+00:00",
       "status": "ok",
       "released": "2026-10-23"
     },
@@ -51,7 +51,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-06T16:02:22+00:00",
+      "fetched_at": "2026-11-07T00:58:25+00:00",
       "status": "ok",
       "released": "2026-10-23"
     },
@@ -61,8 +61,8 @@
       "source": "https://www.bls.gov/news.release/cpi.nr0.htm",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-06T01:37:56+00:00",
-      "status": "retained"
+      "fetched_at": "2026-11-07T00:58:25+00:00",
+      "status": "ok"
     },
     "us_core": {
       "value": 2.6,
@@ -70,8 +70,8 @@
       "source": "https://www.bls.gov/news.release/cpi.nr0.htm",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-06T01:37:56+00:00",
-      "status": "retained"
+      "fetched_at": "2026-11-07T00:58:25+00:00",
+      "status": "ok"
     },
     "jp_policy": {
       "value": 1.25,
@@ -79,7 +79,7 @@
       "source": "https://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k261030a.pdf",
       "unit": "%",
       "frequency": "政策決定日",
-      "fetched_at": "2026-11-06T16:02:24+00:00",
+      "fetched_at": "2026-11-07T00:58:26+00:00",
       "status": "ok"
     },
     "brent": {
@@ -88,8 +88,8 @@
       "source": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
       "unit": "ドル／バレル",
       "frequency": "日次",
-      "fetched_at": "2026-11-06T01:37:56+00:00",
-      "status": "retained",
+      "fetched_at": "2026-11-07T00:58:24+00:00",
+      "status": "ok",
       "history": [
         {
           "date": "2025-05-21",
@@ -1579,8 +1579,8 @@
       "source": "https://fred.stlouisfed.org/series/DCOILWTICO",
       "unit": "ドル／バレル",
       "frequency": "日次",
-      "fetched_at": "2026-11-06T01:37:56+00:00",
-      "status": "retained",
+      "fetched_at": "2026-11-07T00:58:24+00:00",
+      "status": "ok",
       "history": [
         {
           "date": "2025-05-13",
@@ -3070,8 +3070,8 @@
       "source": "https://fred.stlouisfed.org/series/DEXJPUS",
       "unit": "円／ドル",
       "frequency": "日次",
-      "fetched_at": "2026-11-06T01:37:56+00:00",
-      "status": "retained",
+      "fetched_at": "2026-11-07T00:58:25+00:00",
+      "status": "ok",
       "history": [
         {
           "date": "2025-05-09",
@@ -4556,18 +4556,14 @@
       ]
     },
     "us10": {
-      "value": 4.9,
-      "date": "2026-11-04",
+      "value": 4.84,
+      "date": "2026-11-05",
       "source": "https://fred.stlouisfed.org/series/DGS10",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-06T01:37:56+00:00",
-      "status": "retained",
+      "fetched_at": "2026-11-07T00:58:24+00:00",
+      "status": "ok",
       "history": [
-        {
-          "date": "2025-05-14",
-          "value": 4.53
-        },
         {
           "date": "2025-05-15",
           "value": 4.45
@@ -6043,22 +6039,22 @@
         {
           "date": "2026-11-04",
           "value": 4.9
+        },
+        {
+          "date": "2026-11-05",
+          "value": 4.84
         }
       ]
     },
     "us_policy_high": {
       "value": 4.0,
-      "date": "2026-11-05",
+      "date": "2026-11-06",
       "source": "https://fred.stlouisfed.org/series/DFEDTARU",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-06T01:37:56+00:00",
-      "status": "retained",
+      "fetched_at": "2026-11-07T00:58:25+00:00",
+      "status": "ok",
       "history": [
-        {
-          "date": "2025-11-01",
-          "value": 4.0
-        },
         {
           "date": "2025-11-02",
           "value": 4.0
@@ -7533,23 +7529,23 @@
         },
         {
           "date": "2026-11-05",
+          "value": 4.0
+        },
+        {
+          "date": "2026-11-06",
           "value": 4.0
         }
       ]
     },
     "us_policy_low": {
       "value": 3.75,
-      "date": "2026-11-05",
+      "date": "2026-11-06",
       "source": "https://fred.stlouisfed.org/series/DFEDTARL",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-06T01:37:56+00:00",
-      "status": "retained",
+      "fetched_at": "2026-11-07T00:58:25+00:00",
+      "status": "ok",
       "history": [
-        {
-          "date": "2025-11-01",
-          "value": 3.75
-        },
         {
           "date": "2025-11-02",
           "value": 3.75
@@ -9025,19 +9021,15 @@
         {
           "date": "2026-11-05",
           "value": 3.75
+        },
+        {
+          "date": "2026-11-06",
+          "value": 3.75
         }
       ]
     }
   },
-  "errors": {
-    "wti": "TimeoutError: The read operation timed out",
-    "us10": "TimeoutError: The read operation timed out",
-    "fx": "TimeoutError: The read operation timed out",
-    "brent": "TimeoutError: The read operation timed out",
-    "us_cpi_release": "HTTPError: HTTP Error 403: Forbidden",
-    "us_policy_low": "TimeoutError: The read operation timed out",
-    "us_policy_high": "TimeoutError: The read operation timed out"
-  },
+  "errors": {},
   "mode": "official-public-observations",
   "stock_indices": "official_links_only"
 }
