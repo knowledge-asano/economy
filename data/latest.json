@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "attempted_at": "2026-11-10T16:29:01+00:00",
+  "attempted_at": "2026-11-11T01:18:13+00:00",
   "metrics": {
     "jp10": {
-      "value": 2.724,
-      "date": "2026-11-09",
+      "value": 2.748,
+      "date": "2026-11-10",
       "source": "https://www.mof.go.jp/jgbs/reference/interest_rate/jgbcm.csv",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-10T16:28:59+00:00",
+      "fetched_at": "2026-11-11T01:18:13+00:00",
       "status": "ok",
       "history": [
         {
@@ -30,6 +30,10 @@
         {
           "date": "2026-11-09",
           "value": 2.724
+        },
+        {
+          "date": "2026-11-10",
+          "value": 2.748
         }
       ]
     },
@@ -39,7 +43,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-10T16:29:00+00:00",
+      "fetched_at": "2026-11-11T01:18:13+00:00",
       "status": "ok",
       "released": "2026-10-23"
     },
@@ -49,7 +53,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-10T16:29:00+00:00",
+      "fetched_at": "2026-11-11T01:18:13+00:00",
       "status": "ok",
       "released": "2026-10-23"
     },
@@ -59,7 +63,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-10T16:29:00+00:00",
+      "fetched_at": "2026-11-11T01:18:13+00:00",
       "status": "ok",
       "released": "2026-10-23"
     },
@@ -87,7 +91,7 @@
       "source": "https://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k261030a.pdf",
       "unit": "%",
       "frequency": "政策決定日",
-      "fetched_at": "2026-11-10T16:29:01+00:00",
+      "fetched_at": "2026-11-11T01:18:13+00:00",
       "status": "ok"
     },
     "brent": {
@@ -96,7 +100,7 @@
       "source": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
       "unit": "ドル／バレル",
       "frequency": "日次",
-      "fetched_at": "2026-11-10T16:29:00+00:00",
+      "fetched_at": "2026-11-11T01:18:12+00:00",
       "status": "ok",
       "history": [
         {
@@ -1587,7 +1591,7 @@
       "source": "https://fred.stlouisfed.org/series/DCOILWTICO",
       "unit": "ドル／バレル",
       "frequency": "日次",
-      "fetched_at": "2026-11-10T16:28:58+00:00",
+      "fetched_at": "2026-11-11T01:18:12+00:00",
       "status": "ok",
       "history": [
         {
@@ -3078,7 +3082,7 @@
       "source": "https://fred.stlouisfed.org/series/DEXJPUS",
       "unit": "円／ドル",
       "frequency": "日次",
-      "fetched_at": "2026-11-10T16:28:58+00:00",
+      "fetched_at": "2026-11-11T01:18:12+00:00",
       "status": "ok",
       "history": [
         {
@@ -4564,18 +4568,14 @@
       ]
     },
     "us10": {
-      "value": 4.86,
-      "date": "2026-11-06",
+      "value": 4.88,
+      "date": "2026-11-09",
       "source": "https://fred.stlouisfed.org/series/DGS10",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-10T16:29:00+00:00",
+      "fetched_at": "2026-11-11T01:18:12+00:00",
       "status": "ok",
       "history": [
-        {
-          "date": "2025-05-16",
-          "value": 4.43
-        },
         {
           "date": "2025-05-19",
           "value": 4.46
@@ -6051,6 +6051,10 @@
         {
           "date": "2026-11-06",
           "value": 4.86
+        },
+        {
+          "date": "2026-11-09",
+          "value": 4.88
         }
       ]
     },
@@ -6060,7 +6064,7 @@
       "source": "https://fred.stlouisfed.org/series/DFEDTARU",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-10T16:28:59+00:00",
+      "fetched_at": "2026-11-11T01:18:13+00:00",
       "status": "ok",
       "history": [
         {
@@ -7551,7 +7555,7 @@
       "source": "https://fred.stlouisfed.org/series/DFEDTARL",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-10T16:28:59+00:00",
+      "fetched_at": "2026-11-11T01:18:12+00:00",
       "status": "ok",
       "history": [
         {
