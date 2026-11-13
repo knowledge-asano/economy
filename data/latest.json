@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "attempted_at": "2026-11-12T16:54:13+00:00",
+  "attempted_at": "2026-11-13T01:55:57+00:00",
   "metrics": {
     "jp10": {
-      "value": 2.84,
-      "date": "2026-11-11",
+      "value": 2.841,
+      "date": "2026-11-12",
       "source": "https://www.mof.go.jp/jgbs/reference/interest_rate/jgbcm.csv",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-12T16:54:12+00:00",
+      "fetched_at": "2026-11-13T01:55:56+00:00",
       "status": "ok",
       "history": [
         {
@@ -38,6 +38,10 @@
         {
           "date": "2026-11-11",
           "value": 2.84
+        },
+        {
+          "date": "2026-11-12",
+          "value": 2.841
         }
       ]
     },
@@ -47,7 +51,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-12T16:54:12+00:00",
+      "fetched_at": "2026-11-13T01:55:56+00:00",
       "status": "ok",
       "released": "2026-10-23"
     },
@@ -57,7 +61,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-12T16:54:12+00:00",
+      "fetched_at": "2026-11-13T01:55:56+00:00",
       "status": "ok",
       "released": "2026-10-23"
     },
@@ -67,7 +71,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-12T16:54:12+00:00",
+      "fetched_at": "2026-11-13T01:55:56+00:00",
       "status": "ok",
       "released": "2026-10-23"
     },
@@ -95,42 +99,18 @@
       "source": "https://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k261030a.pdf",
       "unit": "%",
       "frequency": "政策決定日",
-      "fetched_at": "2026-11-12T16:54:13+00:00",
+      "fetched_at": "2026-11-13T01:55:57+00:00",
       "status": "ok"
     },
     "brent": {
-      "value": 107.03,
-      "date": "2026-11-03",
+      "value": 92.14,
+      "date": "2026-11-11",
       "source": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
       "unit": "ドル／バレル",
       "frequency": "日次",
-      "fetched_at": "2026-11-12T16:54:11+00:00",
+      "fetched_at": "2026-11-13T01:55:55+00:00",
       "status": "ok",
       "history": [
-        {
-          "date": "2025-05-21",
-          "value": 65.86
-        },
-        {
-          "date": "2025-05-22",
-          "value": 64.87
-        },
-        {
-          "date": "2025-05-23",
-          "value": 65.41
-        },
-        {
-          "date": "2025-05-27",
-          "value": 64.32
-        },
-        {
-          "date": "2025-05-28",
-          "value": 65.72
-        },
-        {
-          "date": "2025-05-29",
-          "value": 64.6
-        },
         {
           "date": "2025-05-30",
           "value": 64.32
@@ -1586,42 +1566,42 @@
         {
           "date": "2026-11-03",
           "value": 107.03
+        },
+        {
+          "date": "2026-11-04",
+          "value": 91.84
+        },
+        {
+          "date": "2026-11-05",
+          "value": 97.96
+        },
+        {
+          "date": "2026-11-06",
+          "value": 97.83
+        },
+        {
+          "date": "2026-11-09",
+          "value": 91.03
+        },
+        {
+          "date": "2026-11-10",
+          "value": 90.16
+        },
+        {
+          "date": "2026-11-11",
+          "value": 92.14
         }
       ]
     },
     "wti": {
-      "value": 99.64,
-      "date": "2026-11-03",
+      "value": 89.62,
+      "date": "2026-11-11",
       "source": "https://fred.stlouisfed.org/series/DCOILWTICO",
       "unit": "ドル／バレル",
       "frequency": "日次",
-      "fetched_at": "2026-11-12T16:54:11+00:00",
+      "fetched_at": "2026-11-13T01:55:55+00:00",
       "status": "ok",
       "history": [
-        {
-          "date": "2025-05-13",
-          "value": 65.04
-        },
-        {
-          "date": "2025-05-14",
-          "value": 64.48
-        },
-        {
-          "date": "2025-05-15",
-          "value": 63.03
-        },
-        {
-          "date": "2025-05-16",
-          "value": 63.84
-        },
-        {
-          "date": "2025-05-19",
-          "value": 63.98
-        },
-        {
-          "date": "2025-05-20",
-          "value": 63.97
-        },
         {
           "date": "2025-05-21",
           "value": 62.93
@@ -3077,6 +3057,30 @@
         {
           "date": "2026-11-03",
           "value": 99.64
+        },
+        {
+          "date": "2026-11-04",
+          "value": 91.73
+        },
+        {
+          "date": "2026-11-05",
+          "value": 94.05
+        },
+        {
+          "date": "2026-11-06",
+          "value": 94.37
+        },
+        {
+          "date": "2026-11-09",
+          "value": 90.4
+        },
+        {
+          "date": "2026-11-10",
+          "value": 89.62
+        },
+        {
+          "date": "2026-11-11",
+          "value": 89.62
         }
       ]
     },
@@ -3086,7 +3090,7 @@
       "source": "https://fred.stlouisfed.org/series/DEXJPUS",
       "unit": "円／ドル",
       "frequency": "日次",
-      "fetched_at": "2026-11-12T16:54:11+00:00",
+      "fetched_at": "2026-11-13T01:55:55+00:00",
       "status": "ok",
       "history": [
         {
@@ -4572,18 +4576,14 @@
       ]
     },
     "us10": {
-      "value": 4.88,
-      "date": "2026-11-09",
+      "value": 4.98,
+      "date": "2026-11-10",
       "source": "https://fred.stlouisfed.org/series/DGS10",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-12T16:54:11+00:00",
+      "fetched_at": "2026-11-13T01:55:55+00:00",
       "status": "ok",
       "history": [
-        {
-          "date": "2025-05-19",
-          "value": 4.46
-        },
         {
           "date": "2025-05-20",
           "value": 4.48
@@ -6059,6 +6059,10 @@
         {
           "date": "2026-11-09",
           "value": 4.88
+        },
+        {
+          "date": "2026-11-10",
+          "value": 4.98
         }
       ]
     },
@@ -6068,7 +6072,7 @@
       "source": "https://fred.stlouisfed.org/series/DFEDTARU",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-12T16:54:11+00:00",
+      "fetched_at": "2026-11-13T01:55:56+00:00",
       "status": "ok",
       "history": [
         {
@@ -7559,7 +7563,7 @@
       "source": "https://fred.stlouisfed.org/series/DFEDTARL",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-12T16:54:12+00:00",
+      "fetched_at": "2026-11-13T01:55:56+00:00",
       "status": "ok",
       "history": [
         {
