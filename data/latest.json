@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "attempted_at": "2026-11-25T04:18:34+00:00",
+  "attempted_at": "2026-11-25T18:42:55+00:00",
   "metrics": {
     "jp10": {
       "value": 2.781,
@@ -8,7 +8,7 @@
       "source": "https://www.mof.go.jp/jgbs/reference/interest_rate/jgbcm.csv",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-25T04:18:33+00:00",
+      "fetched_at": "2026-11-25T18:42:53+00:00",
       "status": "ok",
       "history": [
         {
@@ -79,7 +79,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-25T04:18:34+00:00",
+      "fetched_at": "2026-11-25T18:42:54+00:00",
       "status": "ok",
       "released": "2026-11-20"
     },
@@ -89,7 +89,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-25T04:18:34+00:00",
+      "fetched_at": "2026-11-25T18:42:54+00:00",
       "status": "ok",
       "released": "2026-11-20"
     },
@@ -99,7 +99,7 @@
       "source": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
       "unit": "%",
       "frequency": "月次・前年比",
-      "fetched_at": "2026-11-25T04:18:34+00:00",
+      "fetched_at": "2026-11-25T18:42:54+00:00",
       "status": "ok",
       "released": "2026-11-20"
     },
@@ -127,38 +127,18 @@
       "source": "https://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k261030a.pdf",
       "unit": "%",
       "frequency": "政策決定日",
-      "fetched_at": "2026-11-25T04:18:34+00:00",
+      "fetched_at": "2026-11-25T18:42:55+00:00",
       "status": "ok"
     },
     "brent": {
-      "value": 92.94,
-      "date": "2026-11-17",
+      "value": 91.8,
+      "date": "2026-11-24",
       "source": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
       "unit": "ドル／バレル",
       "frequency": "日次",
-      "fetched_at": "2026-11-25T04:18:33+00:00",
+      "fetched_at": "2026-11-25T18:42:53+00:00",
       "status": "ok",
       "history": [
-        {
-          "date": "2025-06-05",
-          "value": 67.14
-        },
-        {
-          "date": "2025-06-06",
-          "value": 68.02
-        },
-        {
-          "date": "2025-06-09",
-          "value": 68.73
-        },
-        {
-          "date": "2025-06-10",
-          "value": 68.41
-        },
-        {
-          "date": "2025-06-11",
-          "value": 71.29
-        },
         {
           "date": "2025-06-12",
           "value": 70.84
@@ -1618,38 +1598,38 @@
         {
           "date": "2026-11-17",
           "value": 92.94
+        },
+        {
+          "date": "2026-11-18",
+          "value": 92.88
+        },
+        {
+          "date": "2026-11-19",
+          "value": 95.17
+        },
+        {
+          "date": "2026-11-20",
+          "value": 92.76
+        },
+        {
+          "date": "2026-11-23",
+          "value": 91.2
+        },
+        {
+          "date": "2026-11-24",
+          "value": 91.8
         }
       ]
     },
     "wti": {
-      "value": 89.53,
-      "date": "2026-11-17",
+      "value": 82.24,
+      "date": "2026-11-24",
       "source": "https://fred.stlouisfed.org/series/DCOILWTICO",
       "unit": "ドル／バレル",
       "frequency": "日次",
-      "fetched_at": "2026-11-25T04:18:33+00:00",
+      "fetched_at": "2026-11-25T18:42:53+00:00",
       "status": "ok",
       "history": [
-        {
-          "date": "2025-05-28",
-          "value": 62.54
-        },
-        {
-          "date": "2025-05-29",
-          "value": 61.66
-        },
-        {
-          "date": "2025-05-30",
-          "value": 61.46
-        },
-        {
-          "date": "2025-06-02",
-          "value": 63.27
-        },
-        {
-          "date": "2025-06-03",
-          "value": 64.1
-        },
         {
           "date": "2025-06-04",
           "value": 63.57
@@ -3109,6 +3089,26 @@
         {
           "date": "2026-11-17",
           "value": 89.53
+        },
+        {
+          "date": "2026-11-18",
+          "value": 86.81
+        },
+        {
+          "date": "2026-11-19",
+          "value": 86.78
+        },
+        {
+          "date": "2026-11-20",
+          "value": 87.59
+        },
+        {
+          "date": "2026-11-23",
+          "value": 81.42
+        },
+        {
+          "date": "2026-11-24",
+          "value": 82.24
         }
       ]
     },
@@ -3118,7 +3118,7 @@
       "source": "https://fred.stlouisfed.org/series/DEXJPUS",
       "unit": "円／ドル",
       "frequency": "日次",
-      "fetched_at": "2026-11-25T04:18:33+00:00",
+      "fetched_at": "2026-11-25T18:42:53+00:00",
       "status": "ok",
       "history": [
         {
@@ -4609,7 +4609,7 @@
       "source": "https://fred.stlouisfed.org/series/DGS10",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-25T04:18:33+00:00",
+      "fetched_at": "2026-11-25T18:42:53+00:00",
       "status": "ok",
       "history": [
         {
@@ -6096,17 +6096,13 @@
     },
     "us_policy_high": {
       "value": 4.0,
-      "date": "2026-11-24",
+      "date": "2026-11-25",
       "source": "https://fred.stlouisfed.org/series/DFEDTARU",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-25T04:18:33+00:00",
+      "fetched_at": "2026-11-25T18:42:54+00:00",
       "status": "ok",
       "history": [
-        {
-          "date": "2025-11-20",
-          "value": 4.0
-        },
         {
           "date": "2025-11-21",
           "value": 4.0
@@ -7581,23 +7577,23 @@
         },
         {
           "date": "2026-11-24",
+          "value": 4.0
+        },
+        {
+          "date": "2026-11-25",
           "value": 4.0
         }
       ]
     },
     "us_policy_low": {
       "value": 3.75,
-      "date": "2026-11-24",
+      "date": "2026-11-25",
       "source": "https://fred.stlouisfed.org/series/DFEDTARL",
       "unit": "%",
       "frequency": "日次",
-      "fetched_at": "2026-11-25T04:18:33+00:00",
+      "fetched_at": "2026-11-25T18:42:53+00:00",
       "status": "ok",
       "history": [
-        {
-          "date": "2025-11-20",
-          "value": 3.75
-        },
         {
           "date": "2025-11-21",
           "value": 3.75
@@ -9072,6 +9068,10 @@
         },
         {
           "date": "2026-11-24",
+          "value": 3.75
+        },
+        {
+          "date": "2026-11-25",
           "value": 3.75
         }
       ]
